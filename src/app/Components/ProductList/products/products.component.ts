@@ -1,28 +1,26 @@
-import { Component, OnInit } from '@angular/core';
-import ProductData from '../../ViewModels/product-data' ;
-import {IProduct} from '../../ViewModels/iproduct' ;
-import {CategoryList} from '../../ViewModels/categoryList'
-import {OffersDis} from '../../ViewModels/categoryList'
+import { Component, OnInit, Input, OnChanges, Output, SimpleChanges } from '@angular/core';
+import ProductData from '../../../ViewModels/product-data' ;
+import {IProduct} from '../../../ViewModels/iproduct' ;
+import {OffersDis} from '../../../ViewModels/categoryList'
 
 @Component({
   selector: 'app-products',
   templateUrl: './products.component.html',
   styleUrls: ['./products.component.scss']
 })
-export class ProductsComponent implements OnInit {
+export class ProductsComponent implements OnInit, OnChanges {
 
   firstProductInfo: ProductData ; 
   secProdIcfo : ProductData ;
   thirdProdInfo : ProductData ;
   displayTable:boolean= true ;
-  selectedCatID:number= 0 ;
+  @Input() categIdSentByParentComp:number= 0 ;
   filtered: any ;
   discount:any = OffersDis.secDis ;
   quan: number= 0 ;
 
   // Interface
   prodList : IProduct [];
-  categoryList : CategoryList [] ;
   prodMatchCategID : IProduct [] = [] ;
   
 
@@ -42,15 +40,16 @@ export class ProductsComponent implements OnInit {
       {ID: 83 , name: 'Laptop2021' , quantity:0 , price: 10800 , imageURL: 'https://picsum.photos/200' , categoryID: 3 }
     ]
 
-    this.categoryList = [
-      {ID: 1 , name: 'Tablet'  } ,
-      {ID: 2 , name: 'Phone'  } ,
-      {ID: 3 , name: 'Labtop'  }
-    ]
-
     this.prodMatchCategID = this.prodList
     // The abvious line to show table when page reload
 
+  }
+
+  ngOnInit(): void {
+  }
+
+  ngOnChanges() {
+    this.prodFiltered()
   }
 
   // changeCat(event: any) {
@@ -62,19 +61,34 @@ export class ProductsComponent implements OnInit {
   // }
 
   // Function to Buy any Product 
-  buyProduct(quan:number) :number {
-    console.log(--quan);
+  buyProduct() {
+
+    this.prodList[2].quantity -= 1
+
+    // for (let index in this.prodList)
+    // {
+    //   console.log(index);
+    //   this.prodList[index].quantity -= 1
+      
+    // }
     
-    return --quan 
   }
 
 // Function to filter products and return prod that matches CatID
   prodFiltered()
   {
-    this.prodMatchCategID = this.prodList.filter(prod => prod.categoryID == this.selectedCatID)
+    if(this.categIdSentByParentComp==0)
+    {
+      this.prodMatchCategID = this.prodList
+    // The abvious line to show table when page reload
+    }
+
+    else
+    {
+      this.prodMatchCategID = this.prodList.filter(prod => prod.categoryID == this.categIdSentByParentComp)
+    }
   }
 
-  ngOnInit(): void {
-  }
+  
 
 }

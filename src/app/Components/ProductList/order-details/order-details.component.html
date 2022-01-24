@@ -1,0 +1,11 @@
+<div class='' style="margin: 20px">
+    <label for="prdCat" class="form-label">Category:</label>
+    <select class="form-control" name="cat" id="prdCat" [(ngModel)]="selectedCatID" >
+        <option value='0' selected> All Categories </option>
+        <option *ngFor="let cat of categoryList" [value]="cat.ID">{{cat.name}}</option>
+      </select>
+</div>
+
+<app-products [categIdSentByParentComp]="selectedCatID"></app-products>
+
+

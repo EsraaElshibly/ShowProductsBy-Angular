@@ -40,12 +40,14 @@
         </select>
     </div> -->
 
-    <div class='' style="margin: 20px">
+    <!-- Moving this div in parent component called OrderList -->
+    <!-- <div class='' style="margin: 20px">
         <label for="prdCat" class="form-label">Category:</label>
         <select class="form-control" name="cat" id="prdCat" [(ngModel)]="selectedCatID" (change) = 'prodFiltered()'>
+            <option value='0' selected> All Categories </option>
             <option *ngFor="let cat of categoryList" [value]="cat.ID">{{cat.name}}</option>
           </select>
-    </div>
+    </div> -->
 
     <table class='table' *ngIf= 'displayTable' >
         <tr>
@@ -62,7 +64,7 @@
         <!-- <tr *ngFor="let item of prodList" [hidden]='item.ID != selectedCatID' [hidden]='item.quantity == 0' [ngStyle] = "{'background-color' : item.quantity==1 ? 'yellow' : 'lightgray'}" >    -->
 
             <!-- the abouvius tr is used with select tag -->
-            <tr *ngFor="let item of prodMatchCategID" [hidden]='item.ID != selectedCatID' [hidden]='item.quantity == 0' [ngStyle] = "{'background-color' : item.quantity==1 ? 'yellow' : 'lightgray'}" >
+            <tr *ngFor="let item of prodMatchCategID" [hidden]='item.quantity == 0' [ngStyle] = "{'background-color' : item.quantity==1 ? 'yellow' : 'lightgray'}" >
             <!-- the abouvius tr is used with select tag and using to makeforLoop in new array that called prodMatchCategID which contains filtered prod by categID -->
             <td></td>
             <td>{{item.name}}</td>
@@ -70,7 +72,7 @@
             <td>{{item.price}}</td>
             <td><img [src] = 'item.imageURL' width='200px' height='150px' /></td>
             <td>{{item.categoryID}}</td>
-            <td> <button type="button" class="btn btn-primary" (click) = 'buyProduct(item.quantity)'>Buy</button> </td>
+            <td> <button type="button" class="btn btn-primary" (click) = 'buyProduct()'>Buy</button> </td>
         </tr>
     
     </table> 

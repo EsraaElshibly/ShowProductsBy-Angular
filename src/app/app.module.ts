@@ -5,12 +5,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './Components/header/header.component';
 import { FooterComponent } from './Components/footer/footer.component';
-import { ProductsComponent } from './Components/products/products.component';
+import { ProductsComponent } from './Components/ProductList/products/products.component';
 import { SidebarComponent } from './Components/sidebar/sidebar.component';
 import { FormsModule } from '@angular/forms';
 import { BoxStyleDirective } from './Components/Directives/box-style.directive';
 import { BirthdayFromIDPipe } from './Components/Pipes/BirthdayPipe/birthday-from-id.pipe';
 import { CurrencyPipePipe } from './Components/Pipes/CurrencyPipe/currency-pipe.pipe';
+import { OrderDetailsComponent } from './Components/ProductList/order-details/order-details.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { CurrencyPipePipe } from './Components/Pipes/CurrencyPipe/currency-pipe.
     BoxStyleDirective,
     BirthdayFromIDPipe,
     CurrencyPipePipe,
+    OrderDetailsComponent,
   ],
   imports: [
     BrowserModule,
