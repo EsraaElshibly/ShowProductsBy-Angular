@@ -18,11 +18,12 @@ export class ProductsComponent implements OnInit {
   selectedCatID:number=1 ;
   Filtered: any ;
   Dis:any = OffersDis.secDis ;
-  
+  quan: number= 2 ;
 
   // Interface
   iproductInfo : IProduct [];
   categoryList : CategoryList [] ;
+  prodMatchCategID : IProduct [] = [] ;
   
 
   constructor() { 
@@ -33,12 +34,12 @@ export class ProductsComponent implements OnInit {
     this.ThirdProdIcfo = new ProductData('Third-Product' , ['Dummiat' , 'Mansoura' , 'Shobra' , 'Ismalia'] , 'https://picsum.photos/200' )
 
     this.iproductInfo = [
-      {ID: 1 , name: 'Tablet2020' , quantity:0 , price: 1000 , imageURL: 'https://picsum.photos/200' , categoryID: 1 } ,
-      {ID: 1 , name: 'Tablet2021' , quantity:1 , price: 10900 , imageURL: 'https://picsum.photos/200' , categoryID: 1 } ,
-      {ID: 2 , name: 'Apple Phone' , quantity:10 , price: 10290 , imageURL: 'https://picsum.photos/200' , categoryID: 2 } ,
-      {ID: 2 , name: 'Phone2021' , quantity:1 , price: 13000 , imageURL: 'https://picsum.photos/200' , categoryID: 2 } ,
-      {ID: 3 , name: 'Laptop2020' , quantity:80 , price: 10500 , imageURL: 'https://picsum.photos/200' , categoryID: 3 } ,
-      {ID: 3 , name: 'Laptop2021' , quantity:0 , price: 10800 , imageURL: 'https://picsum.photos/200' , categoryID: 3 }
+      {ID: 11 , name: 'Tablet2020' , quantity:0 , price: 1000 , imageURL: 'https://picsum.photos/200' , categoryID: 1 } ,
+      {ID: 100 , name: 'Tablet2021' , quantity:1 , price: 10900 , imageURL: 'https://picsum.photos/200' , categoryID: 1 } ,
+      {ID: 92 , name: 'Apple Phone' , quantity:10 , price: 10290 , imageURL: 'https://picsum.photos/200' , categoryID: 2 } ,
+      {ID: 42 , name: 'Phone2021' , quantity:1 , price: 13000 , imageURL: 'https://picsum.photos/200' , categoryID: 2 } ,
+      {ID: 35 , name: 'Laptop2020' , quantity:80 , price: 10500 , imageURL: 'https://picsum.photos/200' , categoryID: 3 } ,
+      {ID: 83 , name: 'Laptop2021' , quantity:0 , price: 10800 , imageURL: 'https://picsum.photos/200' , categoryID: 3 }
     ]
 
     this.categoryList = [
@@ -46,6 +47,9 @@ export class ProductsComponent implements OnInit {
       {ID: 2 , name: 'Phone'  } ,
       {ID: 3 , name: 'Labtop'  }
     ]
+
+    this.prodMatchCategID = this.iproductInfo
+    // The abvious line to show table when page reload
 
   }
 
@@ -58,9 +62,17 @@ export class ProductsComponent implements OnInit {
   // }
 
   // Function to Buy any Product 
-  // BuyProduct(quantity:IProduct) {
-  //   return quantity-1
-  // }
+  BuyProduct(quan:number) :number {
+    console.log(--quan);
+    
+    return --quan 
+  }
+
+// Function to filter products and return prod that matches CatID
+  ProdFiltered()
+  {
+    this.prodMatchCategID = this.iproductInfo.filter(prod => prod.categoryID == this.selectedCatID)
+  }
 
   ngOnInit(): void {
   }

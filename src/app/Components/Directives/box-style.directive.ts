@@ -1,18 +1,24 @@
-import { Directive,  HostListener, Input, ElementRef } from '@angular/core';
+import { Directive,  HostListener, Input, ElementRef, OnChanges, SimpleChanges  } from '@angular/core';
 
 @Directive({
   selector: '[appBoxStyle]'
 })
-export class BoxStyleDirective {
+export class BoxStyleDirective implements OnChanges {
 
-  @Input('appBoxStyle') borderColor:string = 'lightgray'
+  @Input('appBoxStyle') borderColor:string = 'green'
 
   @Input() defaultColor:string = 'lightblue'
 
   constructor(private elemRef: ElementRef) {
 
-    this.elemRef.nativeElement.style.boxShadow = `3px 3px 3px 3px ${this.borderColor}`
+    // this.elemRef.nativeElement.style.boxShadow = `3px 3px 3px 3px ${this.borderColor}`
 
+   }
+
+// To Show borderColor from productComp file at beggning Using function ngOnChanges from componentsLife Cycle
+   ngOnChanges():void 
+   {
+     this.elemRef.nativeElement.style.boxShadow = `3px 3px 3px 3px ${this.borderColor}`
    }
 
    @HostListener('mouseover') onMouseOver () 
