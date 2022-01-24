@@ -1,0 +1,90 @@
+<!-- <div class="img-product ">
+    <div>
+        <img src="assets/fir.jpg" alt="first product" >
+        <h3> {{firstProductInfo.Name}} </h3>
+    </div>
+    <div>
+        <img src="assets/second.jpg" alt="Second product" >
+        <h3> {{secProdIcfo.Name}} </h3>
+    </div>
+    <div>
+        <img src="assets/camera.jpeg" alt="first product" >
+        <h3> {{ThirdProdIcfo.Name}} </h3>
+    </div>
+</div> -->
+
+<!-- show img from class product Data -->
+<!-- <div class="img-pprod"> -->
+    <!-- <img src="{{firstProductInfo.logoURL}}" alt="product-img" > -->
+    <!-- binding -->
+    <!-- <img [src]="firstProductInfo.logoURL" alt="product-img" >
+    <h4> Our Branches: </h4>
+    <ul>
+        <li *ngFor="let branch of firstProductInfo.Branches">
+            {{branch}}
+        </li>
+    </ul>
+</div> -->
+
+<!-- Show Discount From Enum -->
+<div class="bg-success" style='height:60px ; padding: 20px; margin-top: 50px; margin: 20px ; color: aliceblue; font-size: 20px;' >
+    We are Offers Discount {{Dis}} in all Devises
+</div>
+
+<!-- show Data from Interface -->
+    <!-- <div class='dropdown' style="margin: 20px" >
+        <select #val (change) = 'ChangeCat(val.value)' class="form-control">
+            <option  [value] = 'item.ID' *ngFor="let item of categoryList" > {{item.name}} 
+                
+            </option>
+        </select>
+    </div> -->
+
+    <div class='' style="margin: 20px">
+        <label for="prdCat" class="form-label">Category:</label>
+        <select class="form-control" name="cat" id="prdCat" [(ngModel)]="selectedCatID">
+            <option *ngFor="let cat of categoryList" [value]="cat.ID">{{cat.name}}</option>
+          </select>
+    </div>
+
+    <table class='table' *ngIf= 'displayTable' >
+        <tr>
+            <td>ID</td>
+            <td>Name</td>
+            <td>Quantity</td>
+            <td>Price</td>
+            <td>Image</td>
+            <td>Category</td>
+            <td>Button to Buy</td>
+        </tr>
+
+        <!-- <tr *ngFor="let item of Filtered">   ==== USing div with class dropdown and make select is Comment -->
+        <tr *ngFor="let item of iproductInfo" [hidden]='item.ID != selectedCatID' [hidden]='item.quantity == 0' [ngStyle] = "{'background-color' : item.quantity==1 ? 'yellow' : 'lightgray'}" >   
+            <!-- the abouvius tr is used with select tag -->
+            <td></td>
+            <td>{{item.name}}</td>
+            <td>{{item.quantity}}</td>
+            <td>{{item.price}}</td>
+            <td><img [src] = 'item.imageURL' width='200px' height='150px' /></td>
+            <td>{{item.categoryID}}</td>
+            <td> <button type="button" class="btn btn-primary" (click) = 'item.quantity-1'>Buy</button> </td>
+        </tr>
+    
+    </table> 
+
+
+<div class='box-pro'>
+    <h2> Our Product </h2>
+</div>
+
+<div class="row">
+    <div class="img-pprod card col-md-3 col-12" *ngFor="let item of iproductInfo" appBoxStyle='gray'>
+        <img [src]="item.imageURL" alt="product-img" > 
+        <h4 >CatName: {{item.name}} </h4>
+        <h4>Quantity: {{item.quantity}} </h4> 
+        <h4>Price in USD: {{item.price  | currency: 'USD': 'symbol'}} </h4>
+        <h4>Price in EGP: {{item.price  | currencyPipe: 10 | currency: 'EGP': 'code'}} </h4>  
+        <button type="button" class="btn btn-primary" (click) = 'item.quantity-1'>Add To Cart</button>
+    </div>
+</div> 
+
