@@ -13,15 +13,15 @@ export class ProductsComponent implements OnInit {
 
   firstProductInfo: ProductData ; 
   secProdIcfo : ProductData ;
-  ThirdProdIcfo : ProductData ;
+  thirdProdInfo : ProductData ;
   displayTable:boolean= true ;
-  selectedCatID:number=1 ;
-  Filtered: any ;
-  Dis:any = OffersDis.secDis ;
-  quan: number= 2 ;
+  selectedCatID:number= 0 ;
+  filtered: any ;
+  discount:any = OffersDis.secDis ;
+  quan: number= 0 ;
 
   // Interface
-  iproductInfo : IProduct [];
+  prodList : IProduct [];
   categoryList : CategoryList [] ;
   prodMatchCategID : IProduct [] = [] ;
   
@@ -31,9 +31,9 @@ export class ProductsComponent implements OnInit {
 
     this.secProdIcfo = new ProductData('Second-Product' , ['Luxor' , 'Benha' , 'Maadi' , 'October'] , 'https://picsum.photos/200' )
 
-    this.ThirdProdIcfo = new ProductData('Third-Product' , ['Dummiat' , 'Mansoura' , 'Shobra' , 'Ismalia'] , 'https://picsum.photos/200' )
+    this.thirdProdInfo = new ProductData('Third-Product' , ['Dummiat' , 'Mansoura' , 'Shobra' , 'Ismalia'] , 'https://picsum.photos/200' )
 
-    this.iproductInfo = [
+    this.prodList = [
       {ID: 11 , name: 'Tablet2020' , quantity:0 , price: 1000 , imageURL: 'https://picsum.photos/200' , categoryID: 1 } ,
       {ID: 100 , name: 'Tablet2021' , quantity:1 , price: 10900 , imageURL: 'https://picsum.photos/200' , categoryID: 1 } ,
       {ID: 92 , name: 'Apple Phone' , quantity:10 , price: 10290 , imageURL: 'https://picsum.photos/200' , categoryID: 2 } ,
@@ -48,30 +48,30 @@ export class ProductsComponent implements OnInit {
       {ID: 3 , name: 'Labtop'  }
     ]
 
-    this.prodMatchCategID = this.iproductInfo
+    this.prodMatchCategID = this.prodList
     // The abvious line to show table when page reload
 
   }
 
-  // ChangeCat(event: any) {
+  // changeCat(event: any) {
   //   let id = this.categoryList.find((i) => i.ID == event)
   //   console.log(id?.ID);
     
-  //   this.Filtered = this.iproductInfo.filter((i) => i.ID === id?.ID)
-  //   return this.Filtered
+  //   this.filtered = this.prodList.filter((i) => i.ID === id?.ID)
+  //   return this.filtered
   // }
 
   // Function to Buy any Product 
-  BuyProduct(quan:number) :number {
+  buyProduct(quan:number) :number {
     console.log(--quan);
     
     return --quan 
   }
 
 // Function to filter products and return prod that matches CatID
-  ProdFiltered()
+  prodFiltered()
   {
-    this.prodMatchCategID = this.iproductInfo.filter(prod => prod.categoryID == this.selectedCatID)
+    this.prodMatchCategID = this.prodList.filter(prod => prod.categoryID == this.selectedCatID)
   }
 
   ngOnInit(): void {
