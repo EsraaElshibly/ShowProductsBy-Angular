@@ -10,6 +10,7 @@ import ProductData from '../../../ViewModels/product-data';
 import { IProduct } from '../../../ViewModels/iproduct';
 import { CategoryList, OffersDis } from '../../../ViewModels/categoryList';
 import { Router } from '@angular/router';
+import { ServicesProductComponentService } from '../../Services/ServicesProductComponent.service';
 
 @Component({
   selector: 'app-products',
@@ -29,14 +30,17 @@ export class ProductsComponent implements OnInit, OnChanges {
 
   // Interface
   // categoryList: CategoryList[];
-  prodList: IProduct[];
-  prodMatchCategID: IProduct[] = [];
+  // prodList: IProduct[];
+
+  prodListMatchCategID: IProduct[] = [];
   year: string = '' ;
   cardFormatNum : string = ''
 
   constructor(
-    
-  ) {
+    private prodCompService : ServicesProductComponentService ,
+    private router: Router
+  ) 
+  {
     this.firstProductInfo = new ProductData(
       'First-Product',
       ['cairo', 'Aswan', 'Alex', 'Ismalia'],
@@ -61,65 +65,68 @@ export class ProductsComponent implements OnInit, OnChanges {
     //   { ID: 3, name: 'Labtop' },
     // ];
 
-    this.prodList = [
-      {
-        ID: 21,
-        name: 'Tablet2020',
-        quantity: 0,
-        price: 1000,
-        imageURL: 'https://picsum.photos/200',
-        categoryID: 1,
-      },
-      {
-        ID: 11,
-        name: 'Tablet2021',
-        quantity: 1,
-        price: 10900,
-        imageURL: 'https://picsum.photos/200',
-        categoryID: 1,
-      },
-      {
-        ID: 12,
-        name: 'Apple Phone',
-        quantity: 10,
-        price: 10290,
-        imageURL: 'https://picsum.photos/200',
-        categoryID: 2,
-      },
-      {
-        ID: 23,
-        name: 'Phone2021',
-        quantity: 1,
-        price: 13000,
-        imageURL: 'https://picsum.photos/200',
-        categoryID: 2,
-      },
-      {
-        ID: 33,
-        name: 'Laptop2020',
-        quantity: 80,
-        price: 10500,
-        imageURL: 'https://picsum.photos/200',
-        categoryID: 3,
-      },
-      {
-        ID: 130,
-        name: 'Laptop2021',
-        quantity: 0,
-        price: 10800,
-        imageURL: 'https://picsum.photos/200',
-        categoryID: 3,
-      },
-    ];
+    // this.prodList = [
+    //   {
+    //     ID: 21,
+    //     name: 'Tablet2020',
+    //     quantity: 0,
+    //     price: 1000,
+    //     imageURL: 'https://picsum.photos/200',
+    //     categoryID: 1,
+    //   },
+    //   {
+    //     ID: 11,
+    //     name: 'Tablet2021',
+    //     quantity: 1,
+    //     price: 10900,
+    //     imageURL: 'https://picsum.photos/200',
+    //     categoryID: 1,
+    //   },
+    //   {
+    //     ID: 12,
+    //     name: 'Apple Phone',
+    //     quantity: 10,
+    //     price: 10290,
+    //     imageURL: 'https://picsum.photos/200',
+    //     categoryID: 2,
+    //   },
+    //   {
+    //     ID: 23,
+    //     name: 'Phone2021',
+    //     quantity: 1,
+    //     price: 13000,
+    //     imageURL: 'https://picsum.photos/200',
+    //     categoryID: 2,
+    //   },
+    //   {
+    //     ID: 33,
+    //     name: 'Laptop2020',
+    //     quantity: 80,
+    //     price: 10500,
+    //     imageURL: 'https://picsum.photos/200',
+    //     categoryID: 3,
+    //   },
+    //   {
+    //     ID: 130,
+    //     name: 'Laptop2021',
+    //     quantity: 0,
+    //     price: 10800,
+    //     imageURL: 'https://picsum.photos/200',
+    //     categoryID: 3,
+    //   },
+    // ];
 
-    this.prodMatchCategID = this.prodList;
+    // this.prodMatchCategID = this.prodList;
     // The abvious line to show table when page reload
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.prodListMatchCategID = this.prodCompService.getAllProductsList()
+  }
 
   ngOnChanges() {
     // this.prodFiltered();
+    this.prodListMatchCategID = this.prodCompService.getProdMatchsCategoryId(this.categIdSentByParentComp)
   }
 
   // changeCat(event: any) {
@@ -132,7 +139,7 @@ export class ProductsComponent implements OnInit, OnChanges {
 
   // Function to Buy any Product
   buyProduct() {
-    this.prodList[2].quantity -= 1;
+    // this.prodList[2].quantity -= 1;
 
     // for (let index in this.prodList)
     // {
@@ -143,16 +150,16 @@ export class ProductsComponent implements OnInit, OnChanges {
   }
 
   // Function to filter products and return prod that matches CatID
-  prodFiltered() {
-    if (this.categIdSentByParentComp == 0) {
-      this.prodMatchCategID = this.prodList;
-      // The abvious line to show table when page reload
-    } else {
-      this.prodMatchCategID = this.prodList.filter(
-        (prod) => prod.categoryID == this.categIdSentByParentComp
-      );
-    }
-  }
+  // prodFiltered() {
+  //   if (this.categIdSentByParentComp == 0) {
+  //     this.prodMatchCategID = this.prodList;
+  //     // The abvious line to show table when page reload
+  //   } else {
+  //     this.prodMatchCategID = this.prodList.filter(
+  //       (prod) => prod.categoryID == this.categIdSentByParentComp
+  //     );
+  //   }
+  // }
 
   // prodFiltered() {
     

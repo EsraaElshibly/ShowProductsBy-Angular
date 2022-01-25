@@ -60,6 +60,34 @@ constructor() {
       categoryID: 3,
     },
   ];
- }
+
+}
+
+  getAllProductsList():IProduct[]
+
+  {
+    return this.prodList
+  }
+
+  //get product by his id
+  reciveProductByItsID (prodID : number) 
+  {
+    let selecteProddId = this.prodList.find((prod) => prod.ID == prodID)
+    return selecteProddId 
+  }
+
+  //get product that matches selected categogry id
+  getProdMatchsCategoryId(categId: number):IProduct[]
+  {
+    if(categId == 0)
+    {
+      return this.prodList
+    }
+    else
+    {
+      let selectedProd = this.prodList.filter((prod) => prod.categoryID == categId)
+      return selectedProd
+    }
+  }
 
 }

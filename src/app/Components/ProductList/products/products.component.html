@@ -76,7 +76,7 @@
 
   <!-- the abouvius tr is used with select tag -->
   <tr
-    *ngFor="let item of prodMatchCategID"
+    *ngFor="let item of prodListMatchCategID"
     [hidden]="item.quantity == 0"
     [ngStyle]="{
       'background-color': item.quantity == 1 ? 'yellow' : 'lightgray'
@@ -105,7 +105,7 @@
 <div class="row">
   <div
     class="img-pprod card col-md-3 col-12"
-    *ngFor="let item of prodList"
+    *ngFor="let item of prodListMatchCategID"
     appBoxStyle="gray"
   >
     <img [src]="item.imageURL" alt="product-img" />
