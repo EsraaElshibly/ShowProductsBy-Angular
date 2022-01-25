@@ -13,12 +13,15 @@ import { CurrencyPipePipe } from './Components/Pipes/CurrencyPipe/currency-pipe.
 import { CreditCardSplicePipe } from './Components/Pipes/Credit-Card-splice/CreditCardSplice.pipe';
 import { BirthdayFromIDPipe } from './Components/Pipes/BirthdayPipe/birthday-from-id.pipe';
 import { OrderDetailsComponent } from './Components/ProductList/order-details/order-details.component';
+import { HomeComponent } from './Components/Home/Home.component';
+import { ProductCardsComponent } from './Components/ProductList/ProductCards/ProductCards.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     FooterComponent,
+    HomeComponent,
     ProductsComponent,
     SidebarComponent,
     BoxStyleDirective,
@@ -27,6 +30,8 @@ import { OrderDetailsComponent } from './Components/ProductList/order-details/or
     CreditCardSplicePipe ,
     BirthdayFromIDPipe ,
     OrderDetailsComponent,
+    ProductCardsComponent
+
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [],

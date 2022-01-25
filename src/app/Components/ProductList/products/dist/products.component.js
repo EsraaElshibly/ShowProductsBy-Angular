@@ -8,10 +8,14 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 exports.__esModule = true;
 exports.ProductsComponent = void 0;
 var core_1 = require("@angular/core");
-var product_data_1 = require("../../../ViewModels/product-data");
 var categoryList_1 = require("../../../ViewModels/categoryList");
 var ProductsComponent = /** @class */ (function () {
     function ProductsComponent(prodCompService, router) {
+        // this.categoryList = [
+        //   { ID: 1, name: 'Tablet' },
+        //   { ID: 2, name: 'Phone' },
+        //   { ID: 3, name: 'Labtop' },
+        // ];
         this.prodCompService = prodCompService;
         this.router = router;
         this.displayTable = true;
@@ -25,14 +29,6 @@ var ProductsComponent = /** @class */ (function () {
         this.prodListMatchCategID = [];
         this.year = '';
         this.cardFormatNum = '';
-        this.firstProductInfo = new product_data_1["default"]('First-Product', ['cairo', 'Aswan', 'Alex', 'Ismalia'], 'https://picsum.photos/200');
-        this.secProdIcfo = new product_data_1["default"]('Second-Product', ['Luxor', 'Benha', 'Maadi', 'October'], 'https://picsum.photos/200');
-        this.thirdProdInfo = new product_data_1["default"]('Third-Product', ['Dummiat', 'Mansoura', 'Shobra', 'Ismalia'], 'https://picsum.photos/200');
-        // this.categoryList = [
-        //   { ID: 1, name: 'Tablet' },
-        //   { ID: 2, name: 'Phone' },
-        //   { ID: 3, name: 'Labtop' },
-        // ];
         // this.prodList = [
         //   {
         //     ID: 21,

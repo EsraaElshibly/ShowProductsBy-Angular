@@ -18,9 +18,7 @@ import { ServicesProductComponentService } from '../../Services/ServicesProductC
   styleUrls: ['./products.component.scss'],
 })
 export class ProductsComponent implements OnInit, OnChanges {
-  firstProductInfo: ProductData;
-  secProdIcfo: ProductData;
-  thirdProdInfo: ProductData;
+  
   displayTable: boolean = true;
   @Input() categIdSentByParentComp: number = 0;
   filtered: any;
@@ -41,23 +39,7 @@ export class ProductsComponent implements OnInit, OnChanges {
     private router: Router
   ) 
   {
-    this.firstProductInfo = new ProductData(
-      'First-Product',
-      ['cairo', 'Aswan', 'Alex', 'Ismalia'],
-      'https://picsum.photos/200'
-    );
-
-    this.secProdIcfo = new ProductData(
-      'Second-Product',
-      ['Luxor', 'Benha', 'Maadi', 'October'],
-      'https://picsum.photos/200'
-    );
-
-    this.thirdProdInfo = new ProductData(
-      'Third-Product',
-      ['Dummiat', 'Mansoura', 'Shobra', 'Ismalia'],
-      'https://picsum.photos/200'
-    );
+    
 
     // this.categoryList = [
     //   { ID: 1, name: 'Tablet' },
