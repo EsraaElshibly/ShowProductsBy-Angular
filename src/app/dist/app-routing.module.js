@@ -13,12 +13,14 @@ var main_routing_component_1 = require("./Components/main-routing/main-routing.c
 var Home_component_1 = require("././Components/Home/Home.component");
 var order_details_component_1 = require("./Components/ProductList/order-details/order-details.component");
 var log_in_form_component_1 = require("./Components/log-in-form/log-in-form.component");
+var ProductCards_component_1 = require("./Components/ProductList/ProductCards/ProductCards.component");
 var routes = [
     { path: '', component: main_routing_component_1.MainRoutingComponent,
         children: [
             { path: '', redirectTo: '/Home', pathMatch: 'full' },
             { path: 'Home', component: Home_component_1.HomeComponent },
             { path: 'Products', component: order_details_component_1.OrderDetailsComponent },
+            { path: 'ProdCard', component: ProductCards_component_1.ProductCardsComponent },
         ] },
     { path: 'Log', component: log_in_form_component_1.LogInFormComponent },
 ];

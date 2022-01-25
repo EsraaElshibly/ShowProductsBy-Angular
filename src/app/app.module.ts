@@ -17,6 +17,7 @@ import { HomeComponent } from './Components/Home/Home.component';
 import { ProductCardsComponent } from './Components/ProductList/ProductCards/ProductCards.component';
 import { MainRoutingComponent } from './Components/main-routing/main-routing.component';
 import { LogInFormComponent } from './Components/log-in-form/log-in-form.component';
+import { ProductDetailsComponent } from './Components/ProductList/product-details/product-details.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { LogInFormComponent } from './Components/log-in-form/log-in-form.compone
     OrderDetailsComponent,
     ProductCardsComponent,
     MainRoutingComponent,
-    LogInFormComponent
+    LogInFormComponent,
+    ProductDetailsComponent
 
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule],

@@ -1,0 +1,9 @@
+.product-card {
+  margin: 20px 0px;
+  margin-left: 2%;
+  padding: 2%;
+}
+.product-card img {
+  width: 100%;
+  height: 200px;
+}

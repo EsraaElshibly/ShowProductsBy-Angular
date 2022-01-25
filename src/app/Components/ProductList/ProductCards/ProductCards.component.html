@@ -1,3 +1,18 @@
-<p>
-  ProductCards works!
-</p>
+<div class="row">
+  <div
+    class="product-card card col-md-3 col-12"
+    *ngFor="let item of prodListMatchCategID"
+    appBoxStyle="gray"
+  >
+    <img [src]="item.imageURL" alt="product-img" />
+    <h4>CatName: {{ item.name }}</h4>
+    <h4>Quantity: {{ item.quantity }}</h4>
+    <h4>Price in USD: {{ item.price | currency: "USD":"symbol" }}</h4>
+    <h4>
+      Price in EGP: {{ item.price | currencyPipe: 10 | currency: "EGP":"code" }}
+    </h4>
+    <button type="button" class="btn btn-primary" (click)="(item.quantity - 1)">
+      Add To Cart
+    </button>
+  </div>
+</div>

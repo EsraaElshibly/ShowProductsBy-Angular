@@ -18,7 +18,6 @@ import { ServicesProductComponentService } from '../../Services/ServicesProductC
   styleUrls: ['./products.component.scss'],
 })
 export class ProductsComponent implements OnInit, OnChanges {
-  
   displayTable: boolean = true;
   @Input() categIdSentByParentComp: number = 0;
   filtered: any;
@@ -31,20 +30,16 @@ export class ProductsComponent implements OnInit, OnChanges {
   // prodList: IProduct[];
 
   prodListMatchCategID: IProduct[] = [];
-  
-  constructor(
-    private prodCompService : ServicesProductComponentService ,
-    private router: Router
-  ) 
-  {
-    
 
+  constructor(
+    private prodCompService: ServicesProductComponentService,
+    private router: Router
+  ) {
     // this.categoryList = [
     //   { ID: 1, name: 'Tablet' },
     //   { ID: 2, name: 'Phone' },
     //   { ID: 3, name: 'Labtop' },
     // ];
-
     // this.prodList = [
     //   {
     //     ID: 21,
@@ -95,18 +90,19 @@ export class ProductsComponent implements OnInit, OnChanges {
     //     categoryID: 3,
     //   },
     // ];
-
     // this.prodMatchCategID = this.prodList;
     // The abvious line to show table when page reload
   }
 
   ngOnInit(): void {
-    this.prodListMatchCategID = this.prodCompService.getAllProductsList()
+    this.prodListMatchCategID = this.prodCompService.getAllProductsList();
   }
 
   ngOnChanges() {
     // this.prodFiltered();
-    this.prodListMatchCategID = this.prodCompService.getProdMatchsCategoryId(this.categIdSentByParentComp)
+    this.prodListMatchCategID = this.prodCompService.getProdMatchsCategoryId(
+      this.categIdSentByParentComp
+    );
   }
 
   // changeCat(event: any) {
@@ -120,12 +116,10 @@ export class ProductsComponent implements OnInit, OnChanges {
   // Function to Buy any Product
   buyProduct() {
     // this.prodList[2].quantity -= 1;
-
     // for (let index in this.prodList)
     // {
     //   console.log(index);
     //   this.prodList[index].quantity -= 1
-
     // }
   }
 
@@ -142,11 +136,10 @@ export class ProductsComponent implements OnInit, OnChanges {
   // }
 
   // prodFiltered() {
-    
+
   //     this.prodMatchCategID = this.prodList.filter(
   //       (prod) => prod.categoryID == this.selectedCatID
   //     );
-    
-  // }
 
+  // }
 }

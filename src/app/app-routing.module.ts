@@ -4,6 +4,7 @@ import {MainRoutingComponent} from './Components/main-routing/main-routing.compo
 import {HomeComponent} from '././Components/Home/Home.component';
 import { OrderDetailsComponent } from './Components/ProductList/order-details/order-details.component';
 import { LogInFormComponent } from './Components/log-in-form/log-in-form.component';
+import { ProductCardsComponent } from './Components/ProductList/ProductCards/ProductCards.component';
 
 const routes: Routes = [
   {path: '', component: MainRoutingComponent
@@ -11,6 +12,7 @@ const routes: Routes = [
     {path: '', redirectTo: '/Home', pathMatch: 'full'}, //Default path
     {path: 'Home', component: HomeComponent},
     {path: 'Products', component: OrderDetailsComponent},
+    {path: 'ProdCard', component: ProductCardsComponent},
   ]},
   {path:'Log', component:LogInFormComponent},
   

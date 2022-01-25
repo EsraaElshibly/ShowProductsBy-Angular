@@ -9,15 +9,23 @@ exports.__esModule = true;
 exports.ProductCardsComponent = void 0;
 var core_1 = require("@angular/core");
 var ProductCardsComponent = /** @class */ (function () {
-    function ProductCardsComponent() {
+    function ProductCardsComponent(prodCompService, router) {
+        this.prodCompService = prodCompService;
+        this.router = router;
+        this.prodListMatchCategID = [];
+        this.categIdSentByParentComp = 0;
     }
     ProductCardsComponent.prototype.ngOnInit = function () {
+        this.prodListMatchCategID = this.prodCompService.getAllProductsList();
+    };
+    ProductCardsComponent.prototype.ngOnChanges = function () {
+        this.prodListMatchCategID = this.prodCompService.getProdMatchsCategoryId(this.categIdSentByParentComp);
     };
     ProductCardsComponent = __decorate([
         core_1.Component({
             selector: 'app-ProductCards',
             templateUrl: './ProductCards.component.html',
-            styleUrls: ['./ProductCards.component.css']
+            styleUrls: ['./ProductCards.component.scss']
         })
     ], ProductCardsComponent);
     return ProductCardsComponent;

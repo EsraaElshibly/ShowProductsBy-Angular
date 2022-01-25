@@ -11,11 +11,6 @@ var core_1 = require("@angular/core");
 var categoryList_1 = require("../../../ViewModels/categoryList");
 var ProductsComponent = /** @class */ (function () {
     function ProductsComponent(prodCompService, router) {
-        // this.categoryList = [
-        //   { ID: 1, name: 'Tablet' },
-        //   { ID: 2, name: 'Phone' },
-        //   { ID: 3, name: 'Labtop' },
-        // ];
         this.prodCompService = prodCompService;
         this.router = router;
         this.displayTable = true;
@@ -27,6 +22,11 @@ var ProductsComponent = /** @class */ (function () {
         // categoryList: CategoryList[];
         // prodList: IProduct[];
         this.prodListMatchCategID = [];
+        // this.categoryList = [
+        //   { ID: 1, name: 'Tablet' },
+        //   { ID: 2, name: 'Phone' },
+        //   { ID: 3, name: 'Labtop' },
+        // ];
         // this.prodList = [
         //   {
         //     ID: 21,
