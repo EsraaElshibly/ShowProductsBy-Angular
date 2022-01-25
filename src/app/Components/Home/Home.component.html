@@ -1,14 +1,14 @@
 <div class="img-product">
   <div>
-    <img src="assets/fir.jpg" alt="first product" />
+    <img src="assets/fir.jpg" alt="first product" class="img-fluid" />
     <h3>{{ firstProductInfo.Name }}</h3>
   </div>
   <div>
-    <img src="assets/second.jpg" alt="Second product" />
+    <img src="assets/second.jpg" alt="Second product"class="img-fluid" />
     <h3>{{ secProdIcfo.Name }}</h3>
   </div>
   <div>
-    <img src="assets/camera.jpeg" alt="first product" />
+    <img src="assets/camera.jpeg" alt="first product" class="img-fluid" />
     <h3>{{ thirdProdInfo.Name }}</h3>
   </div>
 </div>
@@ -17,9 +17,9 @@
 <!-- show img from class product Data -->
 <div class="img-pprod">
   
-  <!-- <img src="{{firstProductInfo.logoURL}}" alt="product-img" > -->
+  <!-- <img src="{{firstProductInfo.logoURL}}" alt="product-img" class="img-fluid" > -->
   <!-- binding -->
-  <img [src]="firstProductInfo.logoURL" alt="product-img" />
+  <img [src]="firstProductInfo.logoURL" alt="product-img" class="img-fluid" />
   <h4>Our Branches:</h4>
   <ul>
     <li *ngFor="let branch of firstProductInfo.Branches">

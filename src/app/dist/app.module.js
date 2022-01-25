@@ -13,7 +13,7 @@ var app_routing_module_1 = require("./app-routing.module");
 var app_component_1 = require("./app.component");
 var header_component_1 = require("./Components/header/header.component");
 var footer_component_1 = require("./Components/footer/footer.component");
-var products_component_1 = require("./Components/ProductList/products/products.component");
+var products_component_1 = require("./Components/ProductList/productsTable/products.component");
 var sidebar_component_1 = require("./Components/sidebar/sidebar.component");
 var forms_1 = require("@angular/forms");
 var box_style_directive_1 = require("./Components/Directives/box-style.directive");
@@ -23,6 +23,8 @@ var birthday_from_id_pipe_1 = require("./Components/Pipes/BirthdayPipe/birthday-
 var order_details_component_1 = require("./Components/ProductList/order-details/order-details.component");
 var Home_component_1 = require("./Components/Home/Home.component");
 var ProductCards_component_1 = require("./Components/ProductList/ProductCards/ProductCards.component");
+var main_routing_component_1 = require("./Components/main-routing/main-routing.component");
+var log_in_form_component_1 = require("./Components/log-in-form/log-in-form.component");
 var AppModule = /** @class */ (function () {
     function AppModule() {
     }
@@ -41,7 +43,9 @@ var AppModule = /** @class */ (function () {
                 CreditCardSplice_pipe_1.CreditCardSplicePipe,
                 birthday_from_id_pipe_1.BirthdayFromIDPipe,
                 order_details_component_1.OrderDetailsComponent,
-                ProductCards_component_1.ProductCardsComponent
+                ProductCards_component_1.ProductCardsComponent,
+                main_routing_component_1.MainRoutingComponent,
+                log_in_form_component_1.LogInFormComponent
             ],
             imports: [platform_browser_1.BrowserModule, app_routing_module_1.AppRoutingModule, forms_1.FormsModule],
             providers: [],

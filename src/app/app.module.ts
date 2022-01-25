@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './Components/header/header.component';
 import { FooterComponent } from './Components/footer/footer.component';
-import { ProductsComponent } from './Components/ProductList/products/products.component';
+import { ProductsComponent } from './Components/ProductList/productsTable/products.component';
 import { SidebarComponent } from './Components/sidebar/sidebar.component';
 import { FormsModule } from '@angular/forms';
 import { BoxStyleDirective } from './Components/Directives/box-style.directive';
@@ -15,6 +15,8 @@ import { BirthdayFromIDPipe } from './Components/Pipes/BirthdayPipe/birthday-fro
 import { OrderDetailsComponent } from './Components/ProductList/order-details/order-details.component';
 import { HomeComponent } from './Components/Home/Home.component';
 import { ProductCardsComponent } from './Components/ProductList/ProductCards/ProductCards.component';
+import { MainRoutingComponent } from './Components/main-routing/main-routing.component';
+import { LogInFormComponent } from './Components/log-in-form/log-in-form.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +32,9 @@ import { ProductCardsComponent } from './Components/ProductList/ProductCards/Pro
     CreditCardSplicePipe ,
     BirthdayFromIDPipe ,
     OrderDetailsComponent,
-    ProductCardsComponent
+    ProductCardsComponent,
+    MainRoutingComponent,
+    LogInFormComponent
 
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule],
