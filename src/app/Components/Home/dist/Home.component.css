@@ -15,7 +15,7 @@
 }
 
 .img-pprod {
-  margin-top: 20px;
+  margin: 20px 0px;
   margin-left: 4%;
   padding: 2%;
 }
@@ -29,4 +29,14 @@
 }
 .img-pprod ul li, .img-pprod h4 li {
   line-height: 1.8em;
+}
+
+.pipe {
+  margin-left: 20px;
+}
+.pipe button {
+  margin: 20px 0px;
+  padding: 8px 20px;
+  font-size: 18px;
+  margin-right: 20px;
 }

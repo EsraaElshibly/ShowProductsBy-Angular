@@ -11,6 +11,10 @@ export class HomeComponent implements OnInit {
   firstProductInfo: ProductData;
   secProdIcfo: ProductData;
   thirdProdInfo: ProductData;
+
+  // For Pipe
+  year: string = '' ;
+  cardFormatNum : string = ''
   
   constructor() { 
     this.firstProductInfo = new ProductData(
@@ -35,4 +39,14 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
   }
 
+  // Function for pipe in button
+  getBirthDayFromID (value: string) 
+  {
+    this.year = value
+  }
+
+  formatCreditNum(value: string)
+  {
+    this.cardFormatNum = value
+  }
 }

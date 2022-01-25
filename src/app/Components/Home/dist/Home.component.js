@@ -11,11 +11,21 @@ var core_1 = require("@angular/core");
 var product_data_1 = require("src/app/ViewModels/product-data");
 var HomeComponent = /** @class */ (function () {
     function HomeComponent() {
+        // For Pipe
+        this.year = '';
+        this.cardFormatNum = '';
         this.firstProductInfo = new product_data_1["default"]('First-Product', ['cairo', 'Aswan', 'Alex', 'Ismalia'], 'https://picsum.photos/200');
         this.secProdIcfo = new product_data_1["default"]('Second-Product', ['Luxor', 'Benha', 'Maadi', 'October'], 'https://picsum.photos/200');
         this.thirdProdInfo = new product_data_1["default"]('Third-Product', ['Dummiat', 'Mansoura', 'Shobra', 'Ismalia'], 'https://picsum.photos/200');
     }
     HomeComponent.prototype.ngOnInit = function () {
+    };
+    // Function for pipe in button
+    HomeComponent.prototype.getBirthDayFromID = function (value) {
+        this.year = value;
+    };
+    HomeComponent.prototype.formatCreditNum = function (value) {
+        this.cardFormatNum = value;
     };
     HomeComponent = __decorate([
         core_1.Component({

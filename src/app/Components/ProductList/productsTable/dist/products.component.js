@@ -27,8 +27,6 @@ var ProductsComponent = /** @class */ (function () {
         // categoryList: CategoryList[];
         // prodList: IProduct[];
         this.prodListMatchCategID = [];
-        this.year = '';
-        this.cardFormatNum = '';
         // this.prodList = [
         //   {
         //     ID: 21,
@@ -103,28 +101,6 @@ var ProductsComponent = /** @class */ (function () {
         //   console.log(index);
         //   this.prodList[index].quantity -= 1
         // }
-    };
-    // Function to filter products and return prod that matches CatID
-    // prodFiltered() {
-    //   if (this.categIdSentByParentComp == 0) {
-    //     this.prodMatchCategID = this.prodList;
-    //     // The abvious line to show table when page reload
-    //   } else {
-    //     this.prodMatchCategID = this.prodList.filter(
-    //       (prod) => prod.categoryID == this.categIdSentByParentComp
-    //     );
-    //   }
-    // }
-    // prodFiltered() {
-    //     this.prodMatchCategID = this.prodList.filter(
-    //       (prod) => prod.categoryID == this.selectedCatID
-    //     );
-    // }
-    ProductsComponent.prototype.getBirthDayFromID = function (value) {
-        this.year = value;
-    };
-    ProductsComponent.prototype.formatCreditNum = function (value) {
-        this.cardFormatNum = value;
     };
     __decorate([
         core_1.Input()

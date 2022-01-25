@@ -27,3 +27,17 @@
     </li>
   </ul>
 </div>
+
+<!-- Pipe Data -->
+
+<div class="pipe">
+  <input #val class='form-control' placeholder="Enter tour ID Number" />
+<button class="btn-success" (click)="getBirthDayFromID(val.value)"> Get Birthdate</button>
+<span  birthdayFromID>Birthday: {{year | birthdayFromID }} </span>
+
+
+<input #credvVal class='form-control' placeholder="Enter tour Credit Number" />
+<button class="btn-success" (click)="formatCreditNum(credvVal.value)"> Get Credit format</button>
+<span  birthdayFromID> FormatNum {{cardFormatNum | CreditCardSplice }} </span>
+
+</div>

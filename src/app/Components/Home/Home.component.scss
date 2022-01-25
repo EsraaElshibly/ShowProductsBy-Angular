@@ -17,7 +17,7 @@
 }
 
 .img-pprod {
-    margin-top: 20px;
+    margin: 20px 0px;
     margin-left: 4%;
     padding: 2% ;
 
@@ -28,5 +28,15 @@
         padding: 8px 0px ;
 
         li{line-height: 1.8em;}
+    }
+}
+
+.pipe {
+    margin-left: 20px;
+    button {
+        margin: 20px 0px ;
+        padding: 8px 20px ;
+        font-size: 18px ;
+        margin-right: 20px ;
     }
 }

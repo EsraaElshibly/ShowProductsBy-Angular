@@ -31,9 +31,7 @@ export class ProductsComponent implements OnInit, OnChanges {
   // prodList: IProduct[];
 
   prodListMatchCategID: IProduct[] = [];
-  year: string = '' ;
-  cardFormatNum : string = ''
-
+  
   constructor(
     private prodCompService : ServicesProductComponentService ,
     private router: Router
@@ -151,13 +149,4 @@ export class ProductsComponent implements OnInit, OnChanges {
     
   // }
 
-  getBirthDayFromID (value: string) 
-  {
-    this.year = value
-  }
-
-  formatCreditNum(value: string)
-  {
-    this.cardFormatNum = value
-  }
 }
