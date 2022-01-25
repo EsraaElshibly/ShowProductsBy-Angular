@@ -15,9 +15,9 @@
 
 <!-- show img from class product Data -->
 <!-- <div class="img-pprod"> -->
-    <!-- <img src="{{firstProductInfo.logoURL}}" alt="product-img" > -->
-    <!-- binding -->
-    <!-- <img [src]="firstProductInfo.logoURL" alt="product-img" >
+<!-- <img src="{{firstProductInfo.logoURL}}" alt="product-img" > -->
+<!-- binding -->
+<!-- <img [src]="firstProductInfo.logoURL" alt="product-img" >
     <h4> Our Branches: </h4>
     <ul>
         <li *ngFor="let branch of firstProductInfo.Branches">
@@ -26,13 +26,24 @@
     </ul>
 </div> -->
 
+
 <!-- Show Discount From Enum -->
-<div class="bg-success" style='height:60px ; padding: 20px; margin-top: 50px; margin: 20px ; color: aliceblue; font-size: 20px;' >
-    We are Offers Discount {{discount}} in all Devises
+<div
+  class="bg-success"
+  style="
+    height: 60px;
+    padding: 20px;
+    margin-top: 50px;
+    margin: 20px;
+    color: aliceblue;
+    font-size: 20px;
+  "
+>
+  We are Offers Discount {{ discount }} in all Devises
 </div>
 
 <!-- show Data from Interface -->
-    <!-- <div class='dropdown' style="margin: 20px" >
+<!-- <div class='dropdown' style="margin: 20px" >
         <select #val (change) = 'changeCat(val.value)' class="form-control">
             <option  [value] = 'item.ID' *ngFor="let item of categoryList" > {{item.name}} 
                 
@@ -40,8 +51,8 @@
         </select>
     </div> -->
 
-    <!-- Moving this div in parent component called OrderList -->
-    <!-- <div class='' style="margin: 20px">
+<!-- Moving this div in parent component called OrderList -->
+<!-- <div class='' style="margin: 20px">
         <label for="prdCat" class="form-label">Category:</label>
         <select class="form-control" name="cat" id="prdCat" [(ngModel)]="selectedCatID" (change) = 'prodFiltered()'>
             <option value='0' selected> All Categories </option>
@@ -49,47 +60,74 @@
           </select>
     </div> -->
 
-    <table class='table' *ngIf= 'displayTable' >
-        <tr>
-            <td>ID</td>
-            <td>Name</td>
-            <td>Quantity</td>
-            <td>Price</td>
-            <td>Image</td>
-            <td>Category</td>
-            <td>Button to Buy</td>
-        </tr>
+<table class="table" *ngIf="displayTable">
+  <tr>
+    <td>ID</td>
+    <td>Name</td>
+    <td>Quantity</td>
+    <td>Price</td>
+    <td>Image</td>
+    <td>Category</td>
+    <td>Button to Buy</td>
+  </tr>
 
-        <!-- <tr *ngFor="let item of filtered">   ==== USing div with class dropdown and make select is Comment -->
-        <!-- <tr *ngFor="let item of prodList" [hidden]='item.ID != selectedCatID' [hidden]='item.quantity == 0' [ngStyle] = "{'background-color' : item.quantity==1 ? 'yellow' : 'lightgray'}" >    -->
+  <!-- <tr *ngFor="let item of filtered">   ==== USing div with class dropdown and make select is Comment -->
+  <!-- <tr *ngFor="let item of prodList" [hidden]='item.ID != selectedCatID' [hidden]='item.quantity == 0' [ngStyle] = "{'background-color' : item.quantity==1 ? 'yellow' : 'lightgray'}" >    -->
 
-            <!-- the abouvius tr is used with select tag -->
-            <tr *ngFor="let item of prodMatchCategID" [hidden]='item.quantity == 0' [ngStyle] = "{'background-color' : item.quantity==1 ? 'yellow' : 'lightgray'}" >
-            <!-- the abouvius tr is used with select tag and using to makeforLoop in new array that called prodMatchCategID which contains filtered prod by categID -->
-            <td></td>
-            <td>{{item.name}}</td>
-            <td>{{item.quantity }}</td>
-            <td>{{item.price}}</td>
-            <td><img [src] = 'item.imageURL' width='200px' height='150px' /></td>
-            <td>{{item.categoryID}}</td>
-            <td> <button type="button" class="btn btn-primary" (click) = 'buyProduct()'>Buy</button> </td>
-        </tr>
-    
-    </table> 
+  <!-- the abouvius tr is used with select tag -->
+  <tr
+    *ngFor="let item of prodMatchCategID"
+    [hidden]="item.quantity == 0"
+    [ngStyle]="{
+      'background-color': item.quantity == 1 ? 'yellow' : 'lightgray'
+    }"
+  >
+  
+    <!-- the abouvius tr is used with select tag and using to makeforLoop in new array that called prodMatchCategID which contains filtered prod by categID -->
+    <td></td>
+    <td>{{ item.name }}</td>
+    <td>{{ item.quantity }}</td>
+    <td>{{ item.price }}</td>
+    <td><img [src]="item.imageURL" width="200px" height="150px" /></td>
+    <td>{{ item.categoryID }}</td>
+    <td>
+      <button type="button" class="btn btn-primary" (click)="buyProduct()">
+        Buy
+      </button>
+    </td>
+  </tr>
+</table>
 
-
-<div class='box-pro'>
-    <h2> Our Product </h2>
+<div class="box-pro">
+  <h2>Our Product</h2>
 </div>
 
 <div class="row">
-    <div class="img-pprod card col-md-3 col-12" *ngFor="let item of prodList" appBoxStyle='gray' >
-        <img [src]="item.imageURL" alt="product-img" > 
-        <h4 >CatName: {{item.name}} </h4>
-        <h4>Quantity: {{item.quantity}} </h4> 
-        <h4>Price in USD: {{item.price  | currency: 'USD': 'symbol'}} </h4>
-        <h4>Price in EGP: {{item.price  | currencyPipe: 10 | currency: 'EGP': 'code'}} </h4>  
-        <button type="button" class="btn btn-primary" (click) = 'item.quantity-1'>Add To Cart</button>
-    </div>
-</div> 
+  <div
+    class="img-pprod card col-md-3 col-12"
+    *ngFor="let item of prodList"
+    appBoxStyle="gray"
+  >
+    <img [src]="item.imageURL" alt="product-img" />
+    <h4>CatName: {{ item.name }}</h4>
+    <h4>Quantity: {{ item.quantity }}</h4>
+    <h4>Price in USD: {{ item.price | currency: "USD":"symbol" }}</h4>
+    <h4>
+      Price in EGP: {{ item.price | currencyPipe: 10 | currency: "EGP":"code" }}
+    </h4>
+    <button type="button" class="btn btn-primary" (click)="(item.quantity - 1)">
+      Add To Cart
+    </button>
+  </div>
+</div>
 
+<!-- Pipe Data -->
+<br><br>
+<input #val class='form-control' placeholder="Enter tour ID Number" />
+<button class="btn-success" (click)="getBirthDayFromID(val.value)"> Get Birthdate</button>
+<span  birthdayFromID>Birthday: {{year | birthdayFromID }} </span>
+<br> <br>
+
+<input #credvVal class='form-control' placeholder="Enter tour Credit Number" />
+<button class="btn-success" (click)="formatCreditNum(credvVal.value)"> Get Credit format</button>
+<span  birthdayFromID> FormatNum {{cardFormatNum | CreditCardSplice }} </span>

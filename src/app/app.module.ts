@@ -9,8 +9,9 @@ import { ProductsComponent } from './Components/ProductList/products/products.co
 import { SidebarComponent } from './Components/sidebar/sidebar.component';
 import { FormsModule } from '@angular/forms';
 import { BoxStyleDirective } from './Components/Directives/box-style.directive';
-import { BirthdayFromIDPipe } from './Components/Pipes/BirthdayPipe/birthday-from-id.pipe';
 import { CurrencyPipePipe } from './Components/Pipes/CurrencyPipe/currency-pipe.pipe';
+import { CreditCardSplicePipe } from './Components/Pipes/Credit-Card-splice/CreditCardSplice.pipe';
+import { BirthdayFromIDPipe } from './Components/Pipes/BirthdayPipe/birthday-from-id.pipe';
 import { OrderDetailsComponent } from './Components/ProductList/order-details/order-details.component';
 
 @NgModule({
@@ -23,14 +24,12 @@ import { OrderDetailsComponent } from './Components/ProductList/order-details/or
     BoxStyleDirective,
     BirthdayFromIDPipe,
     CurrencyPipePipe,
+    CreditCardSplicePipe ,
+    BirthdayFromIDPipe ,
     OrderDetailsComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule ,
-    FormsModule
-  ],
+  imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
