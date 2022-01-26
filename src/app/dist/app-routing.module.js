@@ -14,6 +14,8 @@ var Home_component_1 = require("././Components/Home/Home.component");
 var order_details_component_1 = require("./Components/ProductList/order-details/order-details.component");
 var log_in_form_component_1 = require("./Components/log-in-form/log-in-form.component");
 var ProductCards_component_1 = require("./Components/ProductList/ProductCards/ProductCards.component");
+var product_details_component_1 = require("./Components/ProductList/product-details/product-details.component");
+var add_new_product_component_1 = require("./Components/ProductList/add-new-product/add-new-product.component");
 var routes = [
     { path: '', component: main_routing_component_1.MainRoutingComponent,
         children: [
@@ -21,7 +23,8 @@ var routes = [
             { path: 'Home', component: Home_component_1.HomeComponent },
             { path: 'Products', component: order_details_component_1.OrderDetailsComponent },
             { path: 'ProdCard', component: ProductCards_component_1.ProductCardsComponent },
-            { path: 'Products/:prodId', component: ProductCards_component_1.ProductCardsComponent },
+            { path: 'Products/:prodId', component: product_details_component_1.ProductDetailsComponent },
+            { path: 'AddProduct', component: add_new_product_component_1.AddNewProductComponent },
         ] },
     { path: 'Log', component: log_in_form_component_1.LogInFormComponent },
 ];

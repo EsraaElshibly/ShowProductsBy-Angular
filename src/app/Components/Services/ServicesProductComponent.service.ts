@@ -96,4 +96,9 @@ constructor() {
     }
   }
 
+  addNewProduct(product: IProduct)
+  {
+    this.prodList.push(product)
+  }
+
 }

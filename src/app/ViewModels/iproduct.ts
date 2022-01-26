@@ -4,6 +4,6 @@ export interface IProduct {
     quantity : number ,
     price : number ,
     imageURL : string ,
-    categoryID : number
+    categoryID ?: number
 }
 

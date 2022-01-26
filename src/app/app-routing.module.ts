@@ -6,6 +6,7 @@ import { OrderDetailsComponent } from './Components/ProductList/order-details/or
 import { LogInFormComponent } from './Components/log-in-form/log-in-form.component';
 import { ProductCardsComponent } from './Components/ProductList/ProductCards/ProductCards.component';
 import { ProductDetailsComponent } from './Components/ProductList/product-details/product-details.component';
+import { AddNewProductComponent } from './Components/ProductList/add-new-product/add-new-product.component';
 
 
 const routes: Routes = [
@@ -16,6 +17,8 @@ const routes: Routes = [
     {path: 'Products', component: OrderDetailsComponent},
     {path: 'ProdCard', component: ProductCardsComponent},
     {path: 'Products/:prodId', component: ProductDetailsComponent},
+    {path: 'AddProduct' , component: AddNewProductComponent} ,
+
   ]},
   {path:'Log', component:LogInFormComponent},
   

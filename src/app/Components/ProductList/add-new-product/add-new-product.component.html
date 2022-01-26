@@ -1,0 +1,27 @@
+<div class="container">
+    <div>
+        <label for="prdID" class="form-label">Product ID:</label>
+        <input type="number" class="form-control" id="prdID" placeholder="Enter product ID" #IDp />
+    </div>
+    <div>
+        <label for="prdName" class="form-label">Product Name:</label>
+        <input type="text" class="form-control" id="prdName" placeholder="Enter product Name" #prdName />
+    </div>
+    <div>
+        <label for="prdQuan" class="form-label">Product Quantity:</label>
+        <input type="text" class="form-control" id="prdQuan" placeholder="Enter product Quantity" #prdQuan />
+    </div>
+    <div>
+        <label for="prdPrice" class="form-label">Product Price:</label>
+        <input type="text" class="form-control" id="prdPrice" placeholder="Enter product Price" #prdPrice />
+    </div>
+    <div>
+        <label for="prdImg" class="form-label">Product Image:</label>
+        <input type="text" class="form-control" id="prdImg" placeholder="Enter product Image" #prdImg/>
+    </div>
+    <!-- <div>
+        <label for="prdID" class="form-label">Product ID:</label>
+        <input type="number" class="form-control" id="prdID" placeholder="Enter product ID" />
+    </div> -->
+    <button class="btn-primary" (click)="addNewProduct(IDp.value , prdName.value, prdQuan.value, prdPrice.value, prdImg.value)">Add Product</button>
+</div>

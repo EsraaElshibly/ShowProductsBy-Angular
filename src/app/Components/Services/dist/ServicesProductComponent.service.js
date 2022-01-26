@@ -65,8 +65,8 @@ var ServicesProductComponentService = /** @class */ (function () {
         return this.prodList;
     };
     //get product by his id
-    ServicesProductComponentService.prototype.reciveProductByItsID = function (prodID) {
-        var selecteProddId = this.prodList.find(function (prod) { return prod.ID == prodID; });
+    ServicesProductComponentService.prototype.reciveProductByItsID = function (prodId) {
+        var selecteProddId = this.prodList.find(function (prod) { return prod.ID == prodId; });
         return selecteProddId;
     };
     ServicesProductComponentService.prototype.returnProductId = function () {
@@ -82,6 +82,9 @@ var ServicesProductComponentService = /** @class */ (function () {
             var selectedProd = this.prodList.filter(function (prod) { return prod.categoryID == categId; });
             return selectedProd;
         }
+    };
+    ServicesProductComponentService.prototype.addNewProduct = function (product) {
+        this.prodList.push(product);
     };
     ServicesProductComponentService = __decorate([
         core_1.Injectable({
