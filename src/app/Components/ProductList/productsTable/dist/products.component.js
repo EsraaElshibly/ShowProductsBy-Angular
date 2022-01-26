@@ -102,6 +102,26 @@ var ProductsComponent = /** @class */ (function () {
         //   this.prodList[index].quantity -= 1
         // }
     };
+    // Function to filter products and return prod that matches CatID
+    // prodFiltered() {
+    //   if (this.categIdSentByParentComp == 0) {
+    //     this.prodMatchCategID = this.prodList;
+    //     // The abvious line to show table when page reload
+    //   } else {
+    //     this.prodMatchCategID = this.prodList.filter(
+    //       (prod) => prod.categoryID == this.categIdSentByParentComp
+    //     );
+    //   }
+    // }
+    // prodFiltered() {
+    //     this.prodMatchCategID = this.prodList.filter(
+    //       (prod) => prod.categoryID == this.selectedCatID
+    //     );
+    // }
+    ProductsComponent.prototype.openPrdDetails = function (prodID) {
+        // this.router.navigateByUrl('/Products/' + prdID)
+        this.router.navigate(['/Products', prodID]);
+    };
     __decorate([
         core_1.Input()
     ], ProductsComponent.prototype, "categIdSentByParentComp");

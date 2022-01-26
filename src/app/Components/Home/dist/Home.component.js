@@ -10,7 +10,10 @@ exports.HomeComponent = void 0;
 var core_1 = require("@angular/core");
 var product_data_1 = require("src/app/ViewModels/product-data");
 var HomeComponent = /** @class */ (function () {
-    function HomeComponent() {
+    function HomeComponent(
+    // injection for shoeing Advertising
+    advertising) {
+        this.advertising = advertising;
         // For Pipe
         this.year = '';
         this.cardFormatNum = '';
@@ -19,6 +22,18 @@ var HomeComponent = /** @class */ (function () {
         this.thirdProdInfo = new product_data_1["default"]('Third-Product', ['Dummiat', 'Mansoura', 'Shobra', 'Ismalia'], 'https://picsum.photos/200');
     }
     HomeComponent.prototype.ngOnInit = function () {
+        // For Showing Advertising
+        this.advertisSubscription = this.advertising.makeTimeBetweenAdvertising(2).subscribe({
+            next: function (data) { console.log(data); },
+            error: function (error) { console.log(error); },
+            complete: function () {
+                console.log('Advertising is completed');
+            }
+        });
+        // this.advertisSubscription.unsubscribe()
+    };
+    HomeComponent.prototype.ngOnDestroy = function () {
+        this.advertisSubscription.unsubscribe();
     };
     // Function for pipe in button
     HomeComponent.prototype.getBirthDayFromID = function (value) {
