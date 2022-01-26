@@ -1,1 +1,22 @@
-<p>product-details works!</p>
+<div class="card card-details" style='width: 400px' appBoxStyle="gray">
+    
+      <img [src]="prdList?.imageURL" alt="product-img" />
+      <div>
+        <h4>CatName: {{ prdList?.name }}</h4>
+        <h4>Quantity: {{ prdList?.quantity }}</h4>
+        <h4>Price in USD: {{ prdList?.price | currency: "USD":"symbol" }}</h4>
+      </div>
+      <div class='d-flex'>
+        <button type="button" class="btn btn-primary" [disabled]="productCurrentId==arrayOfProductsId[0]" (click) = 'goToPreviousProduct()' >
+          Previous Product
+        </button>
+        <button type="button" class="btn btn-dark" (click) = 'returnBack()'>
+          Back
+        </button>
+        <button type="button" class="btn btn-primary" [disabled]="productCurrentId==arrayOfProductsId[arrayOfProductsId.length-1]" (click) ='goToNextProduct()' >
+          Next Product
+        </button>
+      </div>
+
+  </div>
+  

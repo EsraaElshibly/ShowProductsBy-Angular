@@ -5,6 +5,8 @@ import {HomeComponent} from '././Components/Home/Home.component';
 import { OrderDetailsComponent } from './Components/ProductList/order-details/order-details.component';
 import { LogInFormComponent } from './Components/log-in-form/log-in-form.component';
 import { ProductCardsComponent } from './Components/ProductList/ProductCards/ProductCards.component';
+import { ProductDetailsComponent } from './Components/ProductList/product-details/product-details.component';
+
 
 const routes: Routes = [
   {path: '', component: MainRoutingComponent
@@ -13,6 +15,7 @@ const routes: Routes = [
     {path: 'Home', component: HomeComponent},
     {path: 'Products', component: OrderDetailsComponent},
     {path: 'ProdCard', component: ProductCardsComponent},
+    {path: 'Products/:prodId', component: ProductDetailsComponent},
   ]},
   {path:'Log', component:LogInFormComponent},
   

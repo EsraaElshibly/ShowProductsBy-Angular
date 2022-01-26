@@ -21,6 +21,7 @@ var routes = [
             { path: 'Home', component: Home_component_1.HomeComponent },
             { path: 'Products', component: order_details_component_1.OrderDetailsComponent },
             { path: 'ProdCard', component: ProductCards_component_1.ProductCardsComponent },
+            { path: 'Products/:prodId', component: ProductCards_component_1.ProductCardsComponent },
         ] },
     { path: 'Log', component: log_in_form_component_1.LogInFormComponent },
 ];

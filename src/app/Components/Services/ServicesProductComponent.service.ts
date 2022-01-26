@@ -70,10 +70,16 @@ constructor() {
   }
 
   //get product by his id
-  reciveProductByItsID (prodID : number) 
+  reciveProductByItsID (prodId : number) 
   {
-    let selecteProddId = this.prodList.find((prod) => prod.ID == prodID)
+    let selecteProddId = this.prodList.find((prod) => prod.ID == prodId)
     return selecteProddId 
+  }
+
+  returnProductId() : number[]
+  {
+    let productId : number[] = this.prodList.map(prod => prod.ID)
+    return productId
   }
 
   //get product that matches selected categogry id

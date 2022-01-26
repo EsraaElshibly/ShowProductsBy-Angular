@@ -69,6 +69,10 @@ var ServicesProductComponentService = /** @class */ (function () {
         var selecteProddId = this.prodList.find(function (prod) { return prod.ID == prodID; });
         return selecteProddId;
     };
+    ServicesProductComponentService.prototype.returnProductId = function () {
+        var productId = this.prodList.map(function (prod) { return prod.ID; });
+        return productId;
+    };
     //get product that matches selected categogry id
     ServicesProductComponentService.prototype.getProdMatchsCategoryId = function (categId) {
         if (categId == 0) {

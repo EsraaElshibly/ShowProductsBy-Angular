@@ -6,7 +6,6 @@ import {
   Output,
   SimpleChanges,
 } from '@angular/core';
-import ProductData from '../../../ViewModels/product-data';
 import { IProduct } from '../../../ViewModels/iproduct';
 import { CategoryList, OffersDis } from '../../../ViewModels/categoryList';
 import { Router } from '@angular/router';
@@ -142,4 +141,10 @@ export class ProductsComponent implements OnInit, OnChanges {
   //     );
 
   // }
+
+  openPrdDetails(prodID:number)
+  {
+    // this.router.navigateByUrl('/Products/' + prdID)
+    this.router.navigate(['/Products',prodID]);
+  }
 }
