@@ -40,8 +40,9 @@
     <td>Price</td>
     <td>Image</td>
     <td>Category</td>
-    <td>Button to Buy</td>
-    <td>Button to show Details</td>
+    <td>Buy</td>
+    <td>show Details</td>
+    <td>Edit</td>
   </tr>
 
   <!-- <tr *ngFor="let item of filtered">   ==== USing div with class dropdown and make select is Comment -->
@@ -74,7 +75,7 @@
       </button>
     </td>
     <td>
-      <button type="button" class="btn btn-primary" [routerLink]="['/EditProduct']">
+      <button type="button" class="btn btn-primary" [routerLink]="['/EditProduct' , item.ID]">
         Edit
       </button>
     </td>

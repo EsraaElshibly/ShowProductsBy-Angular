@@ -33,7 +33,7 @@ var routes = [
             },
             { path: 'Products/:prodId', component: product_details_component_1.ProductDetailsComponent },
             { path: 'AddProduct', component: add_new_product_component_1.AddNewProductComponent },
-            { path: 'EditProduct', component: edit_product_component_1.EditProductComponent },
+            { path: 'EditProduct/:id', component: edit_product_component_1.EditProductComponent },
         ]
     },
     { path: 'Log', component: log_in_form_component_1.LogInFormComponent },
