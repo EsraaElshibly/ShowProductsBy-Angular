@@ -86,6 +86,17 @@ var ServicesProductComponentService = /** @class */ (function () {
     ServicesProductComponentService.prototype.addNewProduct = function (product) {
         this.prodList.push(product);
     };
+    ServicesProductComponentService.prototype.getProdBySpecificId = function (id) {
+        var product = this.prodList.find(function (prod) { return prod.ID == id; });
+        return product ? product : null;
+    };
+    ServicesProductComponentService.prototype.updateProductByServices = function (updateProdList) {
+        for (var i in this.prodList) {
+            if (this.prodList[i].ID == updateProdList.ID) {
+                this.prodList[i] = updateProdList;
+            }
+        }
+    };
     ServicesProductComponentService = __decorate([
         core_1.Injectable({
             providedIn: 'root'

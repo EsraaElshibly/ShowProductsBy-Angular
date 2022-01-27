@@ -13,7 +13,33 @@
           <a class="nav-link" routerLink="/ProdDet" routerLinkActive="active"> Products Dtails</a>
           <a class="nav-link" routerLink="/ProdCard" routerLinkActive="active">Products Cards</a>
           <a class="nav-link" routerLink="/Log" routerLinkActive="active"> LogIn</a>
+          <a class="nav-link" routerLink="/Log" data-bs-toggle="modal" data-bs-target="#staticBackdrop" (click)="logOut()"> Logout</a>
         </div>
       </div>
     </div>
   </nav>
+
+  <div class="bg-secondary" *ngIf="isUser">
+    <h2>Hello Dear {{uName}} </h2>
+  </div>
+
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Warning</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        Are You sure to logout...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" >Logout</button>
+      </div>
+    </div>
+  </div>
+</div>

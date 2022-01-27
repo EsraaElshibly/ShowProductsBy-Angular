@@ -36,7 +36,7 @@ export class AddNewProductComponent implements OnInit {
     this.clearInput()
   }
 
-  clearInput()
+  private clearInput()
   {
     this.changeID.nativeElement.value = ''
     this.changeName.nativeElement.value = ''

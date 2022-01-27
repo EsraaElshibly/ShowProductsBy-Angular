@@ -16,16 +16,26 @@ var log_in_form_component_1 = require("./Components/log-in-form/log-in-form.comp
 var ProductCards_component_1 = require("./Components/ProductList/ProductCards/ProductCards.component");
 var product_details_component_1 = require("./Components/ProductList/product-details/product-details.component");
 var add_new_product_component_1 = require("./Components/ProductList/add-new-product/add-new-product.component");
+var edit_product_component_1 = require("./Components/ProductList/edit-product/edit-product.component");
+var guard_user_access_guard_1 = require("./Guards/guard-user-access.guard");
 var routes = [
-    { path: '', component: main_routing_component_1.MainRoutingComponent,
+    {
+        path: '',
+        component: main_routing_component_1.MainRoutingComponent,
         children: [
             { path: '', redirectTo: '/Home', pathMatch: 'full' },
             { path: 'Home', component: Home_component_1.HomeComponent },
             { path: 'Products', component: order_details_component_1.OrderDetailsComponent },
-            { path: 'ProdCard', component: ProductCards_component_1.ProductCardsComponent },
+            {
+                path: 'ProdCard',
+                component: ProductCards_component_1.ProductCardsComponent,
+                canActivate: [guard_user_access_guard_1.GuardUserAccessGuard]
+            },
             { path: 'Products/:prodId', component: product_details_component_1.ProductDetailsComponent },
             { path: 'AddProduct', component: add_new_product_component_1.AddNewProductComponent },
-        ] },
+            { path: 'EditProduct', component: edit_product_component_1.EditProductComponent },
+        ]
+    },
     { path: 'Log', component: log_in_form_component_1.LogInFormComponent },
 ];
 var AppRoutingModule = /** @class */ (function () {
