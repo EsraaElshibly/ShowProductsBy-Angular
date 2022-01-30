@@ -16,15 +16,36 @@ var ProductDetailsComponent = /** @class */ (function () {
         this.loc = loc;
         this.arrayOfProductsId = [];
         this.productCurrentId = 0;
-        this.prodList = null;
+        this.prdList = undefined;
     }
     ProductDetailsComponent.prototype.ngOnInit = function () {
         var _this = this;
         this.arrayOfProductsId = this.prodCompService.returnProductId();
         this.activeRouter.paramMap.subscribe(function (paramMap) {
-            _this.productCurrentId = Number(paramMap.get('productId'));
-            _this.prodList = _this.prodCompService.reciveProductByItsID(_this.productCurrentId);
+            _this.productCurrentId = Number(paramMap.get('prodId'));
+            _this.prdList = _this.prodCompService.reciveProductByItsID(_this.productCurrentId);
         });
+    };
+    ProductDetailsComponent.prototype.returnBack = function () {
+        return this.loc.back();
+    };
+    ProductDetailsComponent.prototype.goToPreviousProduct = function () {
+        var _this = this;
+        var indexOfCurrentProd, previousIndexOfProd;
+        indexOfCurrentProd = this.arrayOfProductsId.findIndex(function (item) { return item == _this.productCurrentId; });
+        if (indexOfCurrentProd > 0) {
+            previousIndexOfProd = this.arrayOfProductsId[indexOfCurrentProd - 1];
+            this.router.navigate(['/Products', previousIndexOfProd]);
+        }
+    };
+    ProductDetailsComponent.prototype.goToNextProduct = function () {
+        var _this = this;
+        var indexOfCurrentProd, nextIndexOfProd;
+        indexOfCurrentProd = this.arrayOfProductsId.findIndex(function (item) { return item == _this.productCurrentId; });
+        if (indexOfCurrentProd < this.arrayOfProductsId.length) {
+            nextIndexOfProd = this.arrayOfProductsId[indexOfCurrentProd + 1];
+            this.router.navigate(['/Products', nextIndexOfProd]);
+        }
     };
     ProductDetailsComponent = __decorate([
         core_1.Component({

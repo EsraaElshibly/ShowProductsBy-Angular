@@ -9,18 +9,40 @@ exports.__esModule = true;
 exports.ProductCardsComponent = void 0;
 var core_1 = require("@angular/core");
 var ProductCardsComponent = /** @class */ (function () {
-    function ProductCardsComponent(prodCompService, router) {
-        this.prodCompService = prodCompService;
+    function ProductCardsComponent(
+    // To get data static UnComment line below
+    // private prodCompService: ServicesProductComponentService,
+    // To get data Dynamic by Api using line below
+    prodComSer, router) {
+        this.prodComSer = prodComSer;
         this.router = router;
         this.prodListMatchCategID = [];
         this.categIdSentByParentComp = 0;
     }
     ProductCardsComponent.prototype.ngOnInit = function () {
-        this.prodListMatchCategID = this.prodCompService.getAllProductsList();
+        // To get data static using line below
+        // this.prodListMatchCategID = this.prodCompService.getAllProductsList();
+        var _this = this;
+        // To get data Dynamic by Api using line below
+        this.prodComSer.getAllProduct().subscribe(function (prod) {
+            _this.prodListMatchCategID = prod;
+        });
     };
     ProductCardsComponent.prototype.ngOnChanges = function () {
-        this.prodListMatchCategID = this.prodCompService.getProdMatchsCategoryId(this.categIdSentByParentComp);
+        // To get data static using line below
+        // this.prodListMatchCategID = this.prodCompService.getProdMatchsCategoryId(
+        //   this.categIdSentByParentComp);
+        var _this = this;
+        // To get data Dynamic by Api using line below
+        this.prodComSer
+            .getProductByCatId(this.categIdSentByParentComp)
+            .subscribe(function (prod) {
+            _this.prodListMatchCategID = prod;
+        });
     };
+    __decorate([
+        core_1.Input()
+    ], ProductCardsComponent.prototype, "categIdSentByParentComp");
     ProductCardsComponent = __decorate([
         core_1.Component({
             selector: 'app-ProductCards',
