@@ -39,10 +39,11 @@
     <td>Quantity</td>
     <td>Price</td>
     <td>Image</td>
-    <td>Category</td>
+    <td>Count Quantity</td>
     <td>Buy</td>
     <td>show Details</td>
     <td>Edit</td>
+    <td>Shop</td>
   </tr>
 
   <!-- <tr *ngFor="let item of filtered">   ==== USing div with class dropdown and make select is Comment -->
@@ -63,7 +64,7 @@
     <td>{{ item.quantity }}</td>
     <td>{{ item.price }}</td>
     <td><img [src]="item.imageURL" width="200px" height="150px" /></td>
-    <td>{{ item.categoryID }}</td>
+    <td><input type="number" class="form-control"></td>
     <td>
       <button type="button" class="btn btn-primary" (click)="buyProduct()">
         Buy
@@ -77,6 +78,11 @@
     <td>
       <button type="button" class="btn btn-primary" [routerLink]="['/EditProduct' , item.ID]">
         Edit
+      </button>
+    </td>
+    <td>
+      <button type="button" class="btn btn-primary" [routerLink]="['/EditProduct' , item.ID]">
+        Shop now
       </button>
     </td>
   </tr>

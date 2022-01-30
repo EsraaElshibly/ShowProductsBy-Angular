@@ -9,6 +9,7 @@ exports.__esModule = true;
 exports.AppModule = void 0;
 var core_1 = require("@angular/core");
 var platform_browser_1 = require("@angular/platform-browser");
+var http_1 = require("@angular/common/http");
 var app_routing_module_1 = require("./app-routing.module");
 var app_component_1 = require("./app.component");
 var header_component_1 = require("./Components/header/header.component");
@@ -25,6 +26,9 @@ var Home_component_1 = require("./Components/Home/Home.component");
 var ProductCards_component_1 = require("./Components/ProductList/ProductCards/ProductCards.component");
 var main_routing_component_1 = require("./Components/main-routing/main-routing.component");
 var log_in_form_component_1 = require("./Components/log-in-form/log-in-form.component");
+var product_details_component_1 = require("./Components/ProductList/product-details/product-details.component");
+var add_new_product_component_1 = require("./Components/ProductList/add-new-product/add-new-product.component");
+var edit_product_component_1 = require("./Components/ProductList/edit-product/edit-product.component");
 var AppModule = /** @class */ (function () {
     function AppModule() {
     }
@@ -45,9 +49,13 @@ var AppModule = /** @class */ (function () {
                 order_details_component_1.OrderDetailsComponent,
                 ProductCards_component_1.ProductCardsComponent,
                 main_routing_component_1.MainRoutingComponent,
-                log_in_form_component_1.LogInFormComponent
+                log_in_form_component_1.LogInFormComponent,
+                product_details_component_1.ProductDetailsComponent,
+                add_new_product_component_1.AddNewProductComponent,
+                edit_product_component_1.EditProductComponent
             ],
-            imports: [platform_browser_1.BrowserModule, app_routing_module_1.AppRoutingModule, forms_1.FormsModule],
+            imports: [platform_browser_1.BrowserModule, app_routing_module_1.AppRoutingModule, forms_1.FormsModule, http_1.HttpClientModule
+            ],
             providers: [],
             bootstrap: [app_component_1.AppComponent]
         })
