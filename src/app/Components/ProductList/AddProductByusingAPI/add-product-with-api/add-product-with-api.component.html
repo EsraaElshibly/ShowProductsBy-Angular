@@ -1,0 +1,79 @@
+<form class="container" (ngSubmit)="addProduct()">
+  <div class="mb-3">
+    <label for="prdID" class="form-label">Product ID:</label>
+    <input
+      type="number"
+      class="form-control"
+      id="prdID"
+      placeholder="Enter product ID"
+      [(ngModel)]="newProduct.ID"
+      name="prdID"
+    />
+  </div>
+  <div class="mb-3">
+    <label for="prdName" class="form-label">Product Name:</label>
+    <input
+      type="text"
+      class="form-control"
+      id="prdName"
+      placeholder="Enter product Name"
+      [(ngModel)]="newProduct.name"
+      name="prdname" 
+      required pattern="[A-Za-z]{3,}"
+      #prdName="ngModel"
+    />
+  </div>
+  <div class="alert alert-danger" [hidden]="prdName.valid || prdName.untouched">
+    <small *ngIf="prdName.errors?.['required']"> Name is required</small>
+    <small *ngIf="prdName.errors?.['pattern']"> Name must be 3 letters at least</small>
+  </div>
+  <div class="mb-3">
+    <label for="prdQuan" class="form-label">Product Quantity:</label>
+    <input
+      type="number"
+      class="form-control"
+      id="prdQuan"
+      placeholder="Enter product Quantity"
+      [(ngModel)]="newProduct.quantity"
+      name="prdquant"
+      required pattern="[0-9]"
+      #prdQuan="ngModel"
+    />
+  </div>
+  <div class="alert alert-danger" [hidden]="prdQuan.valid || prdQuan.untouched">
+    <small *ngIf="prdQuan.errors?.['required']"> Quantity is required</small>
+  </div>
+  <div class="mb-3">
+    <label for="prdPrice" class="form-label">Product Price:</label>
+    <input
+      type="number"
+      class="form-control"
+      id="prdPrice"
+      placeholder="Enter product Price"
+      [(ngModel)]="newProduct.price"
+      name="prdprice"
+      required pattern="[0-9]"
+      #prdPrice = "ngModel"
+    />
+  </div>
+  <div class="mb-3">
+    <label for="prdImg" class="form-label">Product Image:</label>
+    <input
+      type="text"
+      class="form-control"
+      id="prdImg"
+      placeholder="Enter product Image"
+      [(ngModel)]="newProduct.imageURL"
+    />
+  </div>
+  <div class="alert alert-danger" [hidden]="prdPrice.valid || prdPrice.untouched">
+    <small *ngIf="prdPrice.errors?.['required']"> Price Must be Observe</small>
+  </div>
+  <div class="mb-3">
+    <label for="prdCat" class="form-label">Product Category: </label>
+    <select class="form-select form-control" name="cat" id="prdCat" [(ngModel)]="newProduct.categoryID">
+      <option *ngFor="let cat of categoryList" [value]="cat.ID">{{cat.name}}</option>
+    </select>
+  </div>
+  <button class="btn-primary">Add Product</button>
+</form>

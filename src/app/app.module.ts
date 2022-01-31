@@ -21,6 +21,7 @@ import { LogInFormComponent } from './Components/log-in-form/log-in-form.compone
 import { ProductDetailsComponent } from './Components/ProductList/product-details/product-details.component';
 import { AddNewProductComponent } from './Components/ProductList/add-new-product/add-new-product.component';
 import { EditProductComponent } from './Components/ProductList/edit-product/edit-product.component';
+import { AddProductWithAPIComponent } from './Components/ProductList/AddProductByusingAPI/add-product-with-api/add-product-with-api.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { EditProductComponent } from './Components/ProductList/edit-product/edit
     LogInFormComponent,
     ProductDetailsComponent,
     AddNewProductComponent,
-    EditProductComponent
+    EditProductComponent,
+    AddProductWithAPIComponent
 
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule

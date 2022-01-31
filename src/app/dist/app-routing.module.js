@@ -18,6 +18,7 @@ var product_details_component_1 = require("./Components/ProductList/product-deta
 var add_new_product_component_1 = require("./Components/ProductList/add-new-product/add-new-product.component");
 var edit_product_component_1 = require("./Components/ProductList/edit-product/edit-product.component");
 var guard_user_access_guard_1 = require("./Guards/guard-user-access.guard");
+var add_product_with_api_component_1 = require("./Components/ProductList/AddProductByusingAPI/add-product-with-api/add-product-with-api.component");
 var routes = [
     {
         path: '',
@@ -33,6 +34,7 @@ var routes = [
             },
             { path: 'Products/:prodId', component: product_details_component_1.ProductDetailsComponent },
             { path: 'AddProduct', component: add_new_product_component_1.AddNewProductComponent },
+            { path: 'AddNewProd', component: add_product_with_api_component_1.AddProductWithAPIComponent },
             { path: 'EditProduct/:id', component: edit_product_component_1.EditProductComponent },
         ]
     },

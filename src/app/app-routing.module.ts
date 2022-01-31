@@ -9,6 +9,7 @@ import { ProductDetailsComponent } from './Components/ProductList/product-detail
 import { AddNewProductComponent } from './Components/ProductList/add-new-product/add-new-product.component';
 import { EditProductComponent } from './Components/ProductList/edit-product/edit-product.component';
 import { GuardUserAccessGuard } from './Guards/guard-user-access.guard';
+import { AddProductWithAPIComponent } from './Components/ProductList/AddProductByusingAPI/add-product-with-api/add-product-with-api.component';
 
 const routes: Routes = [
   {
@@ -25,6 +26,7 @@ const routes: Routes = [
       },
       { path: 'Products/:prodId', component: ProductDetailsComponent },
       { path: 'AddProduct', component: AddNewProductComponent },
+      { path: 'AddNewProd' , component: AddProductWithAPIComponent},
       { path: 'EditProduct/:id', component: EditProductComponent },
     ],
   },
