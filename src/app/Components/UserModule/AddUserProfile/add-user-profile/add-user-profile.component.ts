@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UserAuthentaionService } from 'src/app/Components/Services/Authentation/user-authentaion.service';
 
 @Component({
   selector: 'app-add-user-profile',
@@ -7,9 +8,27 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddUserProfileComponent implements OnInit {
 
-  constructor() { }
+  isUser: boolean
+  uName: string =""
+
+  constructor(
+    private userAuthentation : UserAuthentaionService 
+  ) 
+  { 
+    this.isUser = this.userAuthentation.isUserLogged
+
+  }
 
   ngOnInit(): void {
+    this.userAuthentation.getLoggedStatus().subscribe(status => 
+      {
+        this.isUser = status
+      })
+
+      this.userAuthentation.getUserName().subscribe(name =>
+        {
+          this.uName = name
+        })
   }
 
 }
