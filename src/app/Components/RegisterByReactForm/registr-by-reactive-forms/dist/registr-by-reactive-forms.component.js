@@ -96,8 +96,11 @@ var RegistrByReactiveFormsComponent = /** @class */ (function () {
         this.userRegModel = this.regestierForm.value;
         console.log(this.userRegModel);
     };
-    RegistrByReactiveFormsComponent.prototype.handleAddPhoneNum = function () {
+    RegistrByReactiveFormsComponent.prototype.handleAddPhoneNum = function (event) {
         this.phoneNumInp.push(this.frmBuld.control(''));
+    };
+    RegistrByReactiveFormsComponent.prototype.handleRemovehoneNum = function (i, event) {
+        this.phoneNumInp.removeAt(i);
     };
     RegistrByReactiveFormsComponent.prototype.makingReferalValide = function () {
         var _a, _b, _c, _d;

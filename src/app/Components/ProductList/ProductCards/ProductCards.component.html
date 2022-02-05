@@ -15,8 +15,8 @@
     <h4>
       Price in EGP: {{ item.price | currencyPipe: 10 | currency: "EGP":"code" }}
     </h4>
-    <button type="button" class="btn btn-primary" (click)="(item.quantity - 1)">
-      Add To Cart
+    <button type="button" class="btn btn-primary" (click)="(deleteProduct(item.ID))">
+      Delete 
     </button>
   </div>
 </div>

@@ -22,6 +22,10 @@ export class ProductCardsComponent implements OnInit {
     private router: Router
   ) {}
 
+  deleteProduct(proID: number) {
+    this.prodComSer.deleteProduct(proID)
+  }
+
   ngOnInit(): void {
     // To get data static using line below
     // this.prodListMatchCategID = this.prodCompService.getAllProductsList();
@@ -44,4 +48,6 @@ export class ProductCardsComponent implements OnInit {
         this.prodListMatchCategID = prod;
       });
   }
+
+  
 }

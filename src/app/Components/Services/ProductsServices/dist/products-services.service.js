@@ -44,8 +44,13 @@ var ProductsServicesService = /** @class */ (function () {
             .post(environment_1.environment.apiURL + "products", JSON.stringify(newProdList), this.httpOptions)
             .pipe(rxjs_1.retry(3), rxjs_1.catchError(this.handleError));
     };
-    ProductsServicesService.prototype.updateProduct = function (prodId, updateProdList) { };
-    ProductsServicesService.prototype.deleteProduct = function (prodId) { };
+    // updateProduct(prodId: number, updateProdList: IProduct): Observable<IProduct> {
+    //   return this.httpClientServices.put<IProduct>(`${environment.apiURL}products/${prodId}`, updateProdList, this.httpClientServices)
+    //   .pipe(retry(3), catchError(this.handleError));
+    // }
+    ProductsServicesService.prototype.deleteProduct = function (prodId) {
+        return this.httpClientServices["delete"](environment_1.environment.apiURL + "products/" + prodId);
+    };
     ProductsServicesService.prototype.handleError = function (error) {
         if (error.status === 0) {
             console.error('An error occured:', error.error);

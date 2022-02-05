@@ -93,8 +93,12 @@ export class RegistrByReactiveFormsComponent implements OnInit {
     console.log(this.userRegModel);
   }
 
-  handleAddPhoneNum() {
+  handleAddPhoneNum(event: any) {
     this.phoneNumInp.push(this.frmBuld.control(''));
+  }
+
+  handleRemovehoneNum(i: number, event: any) {
+    this.phoneNumInp.removeAt(i)
   }
 
   makingReferalValide() {

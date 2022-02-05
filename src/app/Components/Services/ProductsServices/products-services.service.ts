@@ -61,9 +61,14 @@ export class ProductsServicesService {
       .pipe(retry(3), catchError(this.handleError));
   }
 
-  updateProduct(prodId: number, updateProdList: IProduct) {}
+  // updateProduct(prodId: number, updateProdList: IProduct): Observable<IProduct> {
+  //   return this.httpClientServices.put<IProduct>(`${environment.apiURL}products/${prodId}`, updateProdList, this.httpClientServices)
+  //   .pipe(retry(3), catchError(this.handleError));
+  // }
 
-  deleteProduct(prodId: number) {}
+  deleteProduct(prodId: number): Observable<IProduct[]> {
+    return this.httpClientServices.delete<IProduct[]>(`${environment.apiURL}products/${prodId}`)
+  }
 
   private handleError(error: HttpErrorResponse) {
     if (error.status === 0) {

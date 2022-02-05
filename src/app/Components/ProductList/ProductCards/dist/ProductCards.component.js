@@ -19,6 +19,9 @@ var ProductCardsComponent = /** @class */ (function () {
         this.prodListMatchCategID = [];
         this.categIdSentByParentComp = 0;
     }
+    ProductCardsComponent.prototype.deleteProduct = function (proID) {
+        this.prodComSer.deleteProduct(proID);
+    };
     ProductCardsComponent.prototype.ngOnInit = function () {
         // To get data static using line below
         // this.prodListMatchCategID = this.prodCompService.getAllProductsList();

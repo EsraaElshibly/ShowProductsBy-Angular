@@ -45,15 +45,25 @@
       placeholder="Enter Phone Number"
       name="{{ 'phone' + i }}"
       [formControlName]="i"
+      #inpPhoneVal
     />
     <button
       type="button"
-      [disabled]=""
+      [disabled]="inpPhoneVal.value.length===0"
       class="btn-primary"
-      (click)="handleAddPhoneNum()"
-      #btn
+      
+      (click)="handleAddPhoneNum($event)"
     >
       Add Another num
+    </button>
+    <button
+      type="button"
+      [disabled]=""
+      class="btn-danger"
+      [hidden]="inpPhoneVal.value.length===0"
+      (click)="handleRemovehoneNum(i, $event)"
+    >
+      Remove num
     </button>
   </div>
 
@@ -243,8 +253,5 @@
   >
     Register
   </button>
-  <div class="text-danger">
-    <h3>To be removed [For test]:</h3>
-    <div>Form Value:{{ regestierForm.value | json }}</div>
-  </div>
+  
 </form>
