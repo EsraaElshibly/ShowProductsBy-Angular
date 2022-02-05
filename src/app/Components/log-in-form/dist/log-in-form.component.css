@@ -1,0 +1,17 @@
+.parent-form {
+  background-color: #161638;
+  height: 600px;
+}
+.parent-form .form {
+  margin-left: 400px;
+  width: 600px;
+  height: 100%;
+  padding: 50px 10px;
+}
+.parent-form .form .fLabel {
+  margin-top: 100px;
+}
+.parent-form .form label {
+  color: white;
+  font-weight: 600;
+}
