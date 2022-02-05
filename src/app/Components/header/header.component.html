@@ -10,10 +10,14 @@
         <div class="navbar-nav">
           <a class="nav-link ms-8" aria-current="page" routerLink="/Home" routerLinkActive="active"> Home</a>
           <a class="nav-link" routerLink="/Products" routerLinkActive="active"> Products Table</a>
+          
           <a class="nav-link" routerLink="/ProdDet" routerLinkActive="active"> Products Dtails</a>
           <a class="nav-link" routerLink="/ProdCard" routerLinkActive="active">Products Cards</a>
-          <a class="nav-link" routerLink="/Log" routerLinkActive="active"> LogIn</a>
-          <a class="nav-link" routerLink="/Log" data-bs-toggle="modal" data-bs-target="#staticBackdrop" (click)="logOut()"> Logout</a>
+          <a class="nav-link" routerLink="/Register" routerLinkActive="active"> Register</a>
+          <a class="nav-link" [hidden]="isUser" routerLink="/Log" routerLinkActive="active"> LogIn</a>
+          <a class="nav-link" [hidden]="!isUser" routerLink="/Log" data-bs-toggle="modal" data-bs-target="#staticBackdrop" (click)="logOut()"> Logout</a>
+          <a class="nav-link" [hidden]="!isUser" routerLink="/User/UserProfile" routerLinkActive="active">User Profile</a>
+        <a class="nav-link" [hidden]="!isUser" routerLink="/User/EditProfile" routerLinkActive="active">Edit Profile</a>
         </div>
       </div>
     </div>

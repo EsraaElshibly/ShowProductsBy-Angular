@@ -29,6 +29,8 @@ var log_in_form_component_1 = require("./Components/log-in-form/log-in-form.comp
 var product_details_component_1 = require("./Components/ProductList/product-details/product-details.component");
 var add_new_product_component_1 = require("./Components/ProductList/add-new-product/add-new-product.component");
 var edit_product_component_1 = require("./Components/ProductList/edit-product/edit-product.component");
+var add_product_with_api_component_1 = require("./Components/ProductList/AddProductByusingAPI/add-product-with-api/add-product-with-api.component");
+var registr_by_reactive_forms_component_1 = require("./Components/RegisterByReactForm/registr-by-reactive-forms/registr-by-reactive-forms.component");
 var AppModule = /** @class */ (function () {
     function AppModule() {
     }
@@ -52,9 +54,11 @@ var AppModule = /** @class */ (function () {
                 log_in_form_component_1.LogInFormComponent,
                 product_details_component_1.ProductDetailsComponent,
                 add_new_product_component_1.AddNewProductComponent,
-                edit_product_component_1.EditProductComponent
+                edit_product_component_1.EditProductComponent,
+                add_product_with_api_component_1.AddProductWithAPIComponent,
+                registr_by_reactive_forms_component_1.RegistrByReactiveFormsComponent,
             ],
-            imports: [platform_browser_1.BrowserModule, app_routing_module_1.AppRoutingModule, forms_1.FormsModule, http_1.HttpClientModule
+            imports: [platform_browser_1.BrowserModule, app_routing_module_1.AppRoutingModule, forms_1.FormsModule, http_1.HttpClientModule, forms_1.ReactiveFormsModule
             ],
             providers: [],
             bootstrap: [app_component_1.AppComponent]

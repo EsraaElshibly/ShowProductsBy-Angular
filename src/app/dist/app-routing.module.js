@@ -19,6 +19,7 @@ var add_new_product_component_1 = require("./Components/ProductList/add-new-prod
 var edit_product_component_1 = require("./Components/ProductList/edit-product/edit-product.component");
 var guard_user_access_guard_1 = require("./Guards/guard-user-access.guard");
 var add_product_with_api_component_1 = require("./Components/ProductList/AddProductByusingAPI/add-product-with-api/add-product-with-api.component");
+var registr_by_reactive_forms_component_1 = require("./Components/RegisterByReactForm/registr-by-reactive-forms/registr-by-reactive-forms.component");
 var routes = [
     {
         path: '',
@@ -36,9 +37,17 @@ var routes = [
             { path: 'AddProduct', component: add_new_product_component_1.AddNewProductComponent },
             { path: 'AddNewProd', component: add_product_with_api_component_1.AddProductWithAPIComponent },
             { path: 'EditProduct/:id', component: edit_product_component_1.EditProductComponent },
+            // Using another Module [Lazy Loading] to split any application into modules[best paractice]
+            {
+                path: 'User',
+                loadChildren: function () {
+                    return Promise.resolve().then(function () { return require('src/app/Components/UserModule/user-module/user-module.module'); }).then(function (m) { return m.UserModuleModule; });
+                }
+            },
         ]
     },
     { path: 'Log', component: log_in_form_component_1.LogInFormComponent },
+    { path: 'Register', component: registr_by_reactive_forms_component_1.RegistrByReactiveFormsComponent },
 ];
 var AppRoutingModule = /** @class */ (function () {
     function AppRoutingModule() {

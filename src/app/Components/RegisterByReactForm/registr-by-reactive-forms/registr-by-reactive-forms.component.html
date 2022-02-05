@@ -1,0 +1,250 @@
+<form
+  class="container"
+  [formGroup]="regestierForm"
+  style="margin-top: 20px"
+  (ngSubmit)="handleSubmit()"
+>
+  <div class="mb-3">
+    <label for="f-name" class="form-label">Full Name</label>
+    <input
+      type="text"
+      class="form-control"
+      id="f-name"
+      placeholder="Enter Full Name"
+      name="fName"
+      formControlName="fullName"
+    />
+  </div>
+  <div
+    class="alert alert-danger"
+    [hidden]="fullNameInp?.valid || fullNameInp?.untouched"
+  >
+    <small *ngIf="fullNameInp?.errors?.['required']">Name is required</small>
+    <small *ngIf="fullNameInp?.errors?.['pattern']"
+      >Your name must be at least 5 char and your input
+      <span
+        style="font-weight: bold"
+        >{{ fullNameInp?.errors?.['pattern'].actualValue }}</span
+      >
+      doesn't match</small
+    >
+  </div>
+
+  <div
+    formArrayName="phoneNum"
+    class="mb-3"
+    *ngFor="let phoneNum of phoneNumInp.controls; let i = index"
+  >
+    <label for="{{ 'phone' + i + 1 }}" class="form-label"
+      >Phone Number of: {{ i + 1 }}
+    </label>
+    <input
+      type="text"
+      class="form-control"
+      id="{{ 'phone' + i + 1 }}"
+      placeholder="Enter Phone Number"
+      name="{{ 'phone' + i }}"
+      [formControlName]="i"
+    />
+    <button
+      type="button"
+      [disabled]=""
+      class="btn-primary"
+      (click)="handleAddPhoneNum()"
+      #btn
+    >
+      Add Another num
+    </button>
+  </div>
+
+  <div class="mb-3">
+    <label for="email" class="form-label">Email:</label>
+    <input
+      type="email"
+      class="form-control"
+      id="email"
+      placeholder="Enter Your Email"
+      name="email"
+      formControlName="userEmail"
+    />
+  </div>
+
+  <div
+    class="alert alert-danger"
+    [hidden]="emailInp?.valid || emailInp?.untouched"
+  >
+    <small *ngIf="emailInp?.errors?.['required']"> Email is required </small>
+    <small *ngIf="emailInp?.errors?.['EmailNotValid']">
+      Email must have (.com)
+      <b>{{emailInp?.errors?.['EmailNotValid'].value}}</b> can't be used
+    </small>
+  </div>
+
+  <!-- <div class="alert alert-danger" [hidden]="emailInp?.valid || emailInp?.untouched">
+    <small *ngIf="emailInp?.errors?.['required']">
+      Email is required
+    </small>
+    <small *ngIf="emailInp?.errors?.['existEmail']">
+      Entered Email is used before, <b>{{emailInp?.errors?.['existEmail'].value}}</b> can't be used
+    </small>
+  </div> -->
+
+  <!-- Using Conditional validation in radio buttons -->
+  <div
+    class="btn-group"
+    role="group"
+    aria-label="Basic radio toggle button group"
+  >
+    <input
+      type="radio"
+      class="btn-check"
+      formControlName="referral"
+      name="referral"
+      id="btnradio1"
+      autocomplete="off"
+      value="SocialMedia"
+      (change)="makingReferalValide()"
+    />
+    <label class="btn btn-outline-primary" for="btnradio1">Social media</label>
+
+    <input
+      type="radio"
+      class="btn-check"
+      formControlName="referral"
+      name="referral"
+      id="btnradio2"
+      autocomplete="off"
+      value="Friend"
+      (change)="makingReferalValide()"
+    />
+    <label class="btn btn-outline-primary" for="btnradio2">from a Friend</label>
+
+    <input
+      type="radio"
+      class="btn-check"
+      formControlName="referral"
+      name="referral"
+      id="btnradio3"
+      autocomplete="off"
+      value="other"
+      (change)="makingReferalValide()"
+    />
+    <label class="btn btn-outline-primary" for="btnradio3">other</label>
+  </div>
+
+  <div class="mb-3 ms-3" *ngIf="referral?.value == 'other'">
+    <label for="rOther" class="form-label">Specify</label>
+    <input
+      type="text"
+      formControlName="referralOther"
+      class="form-control"
+      id="rOther"
+      name="refOhter"
+    />
+  </div>
+
+  <div
+    class="alert alert-danger"
+    [hidden]="
+      regestierForm.get('referralOther')?.valid ||
+      regestierForm.get('referralOther')?.untouched
+    "
+  >
+    <small *ngIf="regestierForm.get('referralOther')?.errors?.['required']"
+      >Specify is required</small
+    >
+  </div>
+
+  <div class="mb-3">
+    <label for="password" class="form-label">Password: </label>
+    <input
+      type="password"
+      class="form-control"
+      id="password"
+      placeholder="Enter your password"
+      name="password"
+      formControlName="password"
+    />
+
+    <div
+      class="alert alert-danger"
+      *ngIf="passwordInp?.errors?.['required'] && passwordInp?.touched"
+    >
+      Password is required
+    </div>
+  </div>
+
+  <div class="mb-3">
+    <label for="confirm-pass" class="form-label">Confirm Paassword:</label>
+    <input
+      type="password"
+      class="form-control"
+      id="confirm-pass"
+      placeholder="Confirm your password"
+      formControlName="confirmPassword"
+    />
+  </div>
+
+  <div
+    class="alert alert-danger"
+    *ngIf="confirmPassword?.errors?.['required'] && confirmPassword?.touched"
+  >
+    Confirm Password is required
+  </div>
+  <div
+    small
+    class="alert alert-danger"
+    *ngIf="regestierForm?.errors?.['UnmatchedPassword']"
+  >
+    Confirm password must match password.
+  </div>
+
+  <div formGroupName="address">
+    <div class="mb-3">
+      <label for="uCity" class="form-label">City</label>
+      <input
+        type="text"
+        formControlName="city"
+        class="form-control"
+        id="uCity"
+        placeholder="Enter Your city"
+        name="usercity"
+      />
+    </div>
+
+    <div class="mb-3">
+      <label for="uPostalCode" class="form-label">Postal Code</label>
+      <input
+        type="number"
+        formControlName="postalCode"
+        class="form-control"
+        id="uPostalCode"
+        placeholder="Enter Postal Code for your city"
+        name="userpostalcode"
+      />
+    </div>
+
+    <div class="mb-3">
+      <label for="uStreet" class="form-label">Street</label>
+      <input
+        type="text"
+        formControlName="street"
+        class="form-control"
+        id="uStreet"
+        placeholder="Enter Your street"
+        name="userstreet"
+      />
+    </div>
+  </div>
+  <button
+    [disabled]="regestierForm.invalid"
+    type="submit"
+    class="btn btn-primary"
+  >
+    Register
+  </button>
+  <div class="text-danger">
+    <h3>To be removed [For test]:</h3>
+    <div>Form Value:{{ regestierForm.value | json }}</div>
+  </div>
+</form>

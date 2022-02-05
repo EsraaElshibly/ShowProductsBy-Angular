@@ -10,6 +10,7 @@ import { AddNewProductComponent } from './Components/ProductList/add-new-product
 import { EditProductComponent } from './Components/ProductList/edit-product/edit-product.component';
 import { GuardUserAccessGuard } from './Guards/guard-user-access.guard';
 import { AddProductWithAPIComponent } from './Components/ProductList/AddProductByusingAPI/add-product-with-api/add-product-with-api.component';
+import { RegistrByReactiveFormsComponent } from './Components/RegisterByReactForm/registr-by-reactive-forms/registr-by-reactive-forms.component';
 
 const routes: Routes = [
   {
@@ -26,11 +27,20 @@ const routes: Routes = [
       },
       { path: 'Products/:prodId', component: ProductDetailsComponent },
       { path: 'AddProduct', component: AddNewProductComponent },
-      { path: 'AddNewProd' , component: AddProductWithAPIComponent},
+      { path: 'AddNewProd', component: AddProductWithAPIComponent },
       { path: 'EditProduct/:id', component: EditProductComponent },
+      // Using another Module [Lazy Loading] to split any application into modules[best paractice]
+      {
+        path: 'User',
+        loadChildren: () =>
+          import(
+            'src/app/Components/UserModule/user-module/user-module.module'
+          ).then((m) => m.UserModuleModule),
+      },
     ],
   },
   { path: 'Log', component: LogInFormComponent },
+  { path: 'Register', component: RegistrByReactiveFormsComponent },
 ];
 
 @NgModule({
